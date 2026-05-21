@@ -501,7 +501,7 @@ const Pricing: React.FC = () => {
                   
                   <div className="flex flex-col gap-4">
                     <p className="font-semibold text-sm uppercase text-muted">What's Included</p>
-                    {plan.features.map((feature, i) => (
+                    {plan.features.map((feature: string, i: number) => (
                       <div key={i} className="flex items-start gap-3">
                         <Check size={18} className="text-secondary shrink-0 mt-1" />
                         <span className="text-sm text-white">{feature}</span>
