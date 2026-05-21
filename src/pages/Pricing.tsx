@@ -456,7 +456,7 @@ const Pricing: React.FC = () => {
       <section className="section container">
         {/* Tab Navigation */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
-          {tabs.map((tab) => (
+          {tabs.map((tab: { id: TabType; label: string }) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
@@ -475,9 +475,9 @@ const Pricing: React.FC = () => {
         {currentPlans.length > 0 ? (
           <>
             <div className="grid grid-3 items-start">
-              {currentPlans.map((plan, idx) => (
-                <div 
-                  key={idx} 
+              {currentPlans.map((plan: any, idx: number) => (
+                <div
+                  key={idx}
                   className={`card animate-fade-up relative ${plan.popular ? 'glass border-primary scale-105 z-10' : 'border-white/5 z-0'}`}
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
@@ -516,7 +516,7 @@ const Pricing: React.FC = () => {
             <div className="mt-16 animate-fade-up">
               <h3 className="text-2xl font-bold mb-8 text-center">Available Add-ons</h3>
               <div className="grid grid-3 gap-4">
-                {addOns.map((addon, idx) => (
+                {addOns.map((addon: { name: string; price: string }, idx: number) => (
                   <div key={idx} className="card p-4 flex justify-between items-center">
                     <span className="text-white">{addon.name}</span>
                     <span className="text-secondary font-semibold">{addon.price}</span>
@@ -529,7 +529,7 @@ const Pricing: React.FC = () => {
             <div className="mt-16 animate-fade-up">
               <h3 className="text-2xl font-bold mb-8 text-center">Terms & Policies</h3>
               <div className="grid grid-2 gap-6">
-                {termsAndPolicies.map((term, idx) => (
+                {termsAndPolicies.map((term: { category: string; content: string }, idx: number) => (
                   <div key={idx} className="card p-6">
                     <h4 className="text-lg font-semibold mb-3 text-secondary">{term.category}</h4>
                     <p className="text-muted text-sm leading-relaxed">{term.content}</p>
@@ -552,7 +552,7 @@ const Pricing: React.FC = () => {
           </div>
           
           <div className="grid grid-2">
-            {faqs.map((faq, idx) => (
+            {faqs.map((faq: { q: string; a: string }, idx: number) => (
               <div key={idx} className="card animate-fade-up p-8" style={{ animationDelay: `${(idx % 4) * 0.1}s` }}>
                 <h4 className="mb-3 text-xl">{faq.q}</h4>
                 <p className="text-muted text-base leading-relaxed">{faq.a}</p>
