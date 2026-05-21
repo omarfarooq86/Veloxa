@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <path d="M10,35 L20,15 L30,35 L40,25 L45,35" fill="none" stroke="#000" stroke-width="5" stroke-linejoin="round"/>
+  <text x="55" y="38" font-family="sans-serif" font-weight="900" font-style="italic" font-size="24" fill="#000">NEXUS FIT</text>
+</svg>

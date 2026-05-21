@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <path d="M15,15 h20 v20 c0,10 -20,10 -20,0 Z" fill="#000"/>
+  <path d="M35,20 h5 c5,0 5,10 0,10 h-5" fill="none" stroke="#000" stroke-width="3"/>
+  <path d="M20,5 q5,-5 5,5 M30,5 q5,-5 5,5" fill="none" stroke="#000" stroke-width="2"/>
+  <text x="55" y="38" font-family="sans-serif" font-weight="800" font-size="26" fill="#000">Cafe Verde</text>
+</svg>

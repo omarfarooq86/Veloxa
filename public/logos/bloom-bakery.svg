@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <circle cx="25" cy="20" r="10" fill="#000"/>
+  <circle cx="15" cy="30" r="10" fill="#000"/>
+  <circle cx="35" cy="30" r="10" fill="#000"/>
+  <circle cx="25" cy="40" r="10" fill="#000"/>
+  <circle cx="25" cy="30" r="4" fill="#fff"/>
+  <text x="55" y="38" font-family="serif" font-weight="bold" font-size="24" fill="#000">Bloom Bakery</text>
+</svg>
