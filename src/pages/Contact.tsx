@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PageHeader from '@/components/PageHeader';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Clock, MapPin } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
 
 const Contact: React.FC = () => {
@@ -28,17 +28,17 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="mb-1">Email</h4>
-                  <p className="text-muted">hello@veloxa.com</p>
+                  <p className="text-muted">Use the form and we'll reply to your inbox.</p>
                 </div>
               </div>
               
               <div className="flex items-center gap-4">
                 <div className="card-icon w-12 h-12 mb-0 shrink-0">
-                  <Phone size={24} />
+                  <Clock size={24} />
                 </div>
                 <div>
-                  <h4 className="mb-1">Phone</h4>
-                  <p className="text-muted">+1 (555) 123-4567</p>
+                  <h4 className="mb-1">Response Time</h4>
+                  <p className="text-muted">We reply within 24 hours on business days.</p>
                 </div>
               </div>
               
@@ -47,8 +47,8 @@ const Contact: React.FC = () => {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h4 className="mb-1">Office</h4>
-                  <p className="text-muted">123 Digital Ave, Tech District<br/>San Francisco, CA 94107</p>
+                  <h4 className="mb-1">Location</h4>
+                  <p className="text-muted">Remote-first agency<br/>Serving clients worldwide</p>
                 </div>
               </div>
             </div>
