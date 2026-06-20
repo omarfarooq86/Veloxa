@@ -9,8 +9,25 @@ type Props = {
   autoMs?: number;
 };
 
+const useIsMobile = (query = '(max-width: 768px)') => {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.matchMedia(query).matches : false,
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, [query]);
+
+  return isMobile;
+};
+
 export const TestimonialSlider: React.FC<Props> = ({ items, autoMs = 8000 }) => {
   const [index, setIndex] = useState(0);
+  const isMobile = useIsMobile();
 
   const go = useCallback(
     (delta: number) => {
@@ -31,41 +48,72 @@ export const TestimonialSlider: React.FC<Props> = ({ items, autoMs = 8000 }) => 
 
   const renderTestimonial = (item: Testimonial, isActive: boolean) => (
     <blockquote
-      className="card"
-      style={{
-        margin: 0,
-        borderLeft: isActive ? '3px solid var(--color-primary)' : '3px solid transparent',
-        minHeight: 'clamp(240px, 32vh, 340px)',
-        display: 'flex',
-        flexDirection: 'column',
-        opacity: isActive ? 1 : 0.5,
-        transform: isActive ? 'scale(1)' : 'scale(0.95)',
-        transition: 'all 0.3s ease',
-      }}
+      className={`testimonial-slider__card card${isActive ? ' testimonial-slider__card--active' : ''}`}
     >
-      <Quote size={22} className="text-primary mb-4" style={{ opacity: 0.85 }} aria-hidden />
-      <p className="text-muted mb-6" style={{ fontSize: '1.05rem', lineHeight: 1.65, flexGrow: 1 }}>
-        {item.quote}
-      </p>
-      <footer>
-        <strong style={{ display: 'block', marginBottom: '0.25rem' }}>{item.name}</strong>
-        <span className="text-muted" style={{ fontSize: '0.95rem' }}>
-          {item.role}
-        </span>
+      <Quote size={22} className="text-primary testimonial-slider__quote" aria-hidden />
+      <p className="text-muted testimonial-slider__text">{item.quote}</p>
+      <footer className="testimonial-slider__footer">
+        <strong>{item.name}</strong>
+        <span className="text-muted">{item.role}</span>
       </footer>
     </blockquote>
   );
 
-  return (
-    <div
-      className="testimonial-slider"
-      style={{ position: 'relative', maxWidth: '1200px', margin: '0 auto', padding: '0 3rem' }}
+  const navButton = (direction: 'prev' | 'next') => (
+    <button
+      type="button"
+      className="testimonial-slider__btn"
+      aria-label={direction === 'prev' ? 'Previous testimonial' : 'Next testimonial'}
+      onClick={() => go(direction === 'prev' ? -1 : 1)}
     >
-      <div aria-live="polite" aria-atomic="true" style={{ display: 'flex', alignItems: 'center', gap: '1rem', overflow: 'hidden' }}>
-        {/* Previous testimonial (half visible) */}
+      {direction === 'prev' ? <ChevronLeft size={24} /> : <ChevronRight size={24} />}
+    </button>
+  );
+
+  const renderDots = () =>
+    items.map((_, i) => (
+      <button
+        key={i}
+        type="button"
+        role="tab"
+        aria-selected={i === index}
+        aria-label={`Go to testimonial ${i + 1}`}
+        onClick={() => setIndex(i)}
+        className={`testimonial-slider__dot${i === index ? ' testimonial-slider__dot--active' : ''}`}
+      />
+    ));
+
+  if (isMobile) {
+    return (
+      <div className="testimonial-slider testimonial-slider--mobile">
+        <div aria-live="polite" aria-atomic="true" className="testimonial-slider__track">
+          <motion.div
+            key={current.name + String(index)}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {renderTestimonial(current, true)}
+          </motion.div>
+        </div>
+
+        <div className="testimonial-slider__controls">
+          {navButton('prev')}
+          <div className="testimonial-slider__dots" role="tablist" aria-label="Testimonial slides">
+            {renderDots()}
+          </div>
+          {navButton('next')}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="testimonial-slider">
+      <div aria-live="polite" aria-atomic="true" className="testimonial-slider__track testimonial-slider__track--desktop">
         <motion.div
           key={items[prevIndex].name + String(prevIndex)}
-          style={{ flex: '0 0 30%' }}
+          className="testimonial-slider__slide testimonial-slider__slide--side"
           initial={{ opacity: 0.5, scale: 0.9 }}
           animate={{ opacity: 0.5, scale: 0.9 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -73,10 +121,9 @@ export const TestimonialSlider: React.FC<Props> = ({ items, autoMs = 8000 }) => 
           {renderTestimonial(items[prevIndex], false)}
         </motion.div>
 
-        {/* Current testimonial (fully visible) */}
         <motion.div
           key={current.name + String(index)}
-          style={{ flex: '0 0 40%' }}
+          className="testimonial-slider__slide testimonial-slider__slide--center"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -84,10 +131,9 @@ export const TestimonialSlider: React.FC<Props> = ({ items, autoMs = 8000 }) => 
           {renderTestimonial(current, true)}
         </motion.div>
 
-        {/* Next testimonial (half visible) */}
         <motion.div
           key={items[nextIndex].name + String(nextIndex)}
-          style={{ flex: '0 0 30%' }}
+          className="testimonial-slider__slide testimonial-slider__slide--side"
           initial={{ opacity: 0.5, scale: 0.9 }}
           animate={{ opacity: 0.5, scale: 0.9 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -98,74 +144,23 @@ export const TestimonialSlider: React.FC<Props> = ({ items, autoMs = 8000 }) => 
 
       <button
         type="button"
-        className="testimonial-slider__btn"
+        className="testimonial-slider__btn testimonial-slider__btn--side testimonial-slider__btn--prev"
         aria-label="Previous testimonial"
         onClick={() => go(-1)}
-        style={{
-          position: 'absolute',
-          left: 0,
-          top: '50%',
-          transform: 'translateY(-50%)',
-          width: 44,
-          height: 44,
-          borderRadius: '50%',
-          display: 'grid',
-          placeItems: 'center',
-          background: 'rgba(255,255,255,0.06)',
-          border: '1px solid rgba(255,255,255,0.12)',
-          color: 'var(--color-text)',
-          cursor: 'pointer',
-          transition: 'var(--transition, 0.2s ease)',
-        }}
       >
         <ChevronLeft size={24} />
       </button>
       <button
         type="button"
-        className="testimonial-slider__btn"
+        className="testimonial-slider__btn testimonial-slider__btn--side testimonial-slider__btn--next"
         aria-label="Next testimonial"
         onClick={() => go(1)}
-        style={{
-          position: 'absolute',
-          right: 0,
-          top: '50%',
-          transform: 'translateY(-50%)',
-          width: 44,
-          height: 44,
-          borderRadius: '50%',
-          display: 'grid',
-          placeItems: 'center',
-          background: 'rgba(255,255,255,0.06)',
-          border: '1px solid rgba(255,255,255,0.12)',
-          color: 'var(--color-text)',
-          cursor: 'pointer',
-          transition: 'var(--transition, 0.2s ease)',
-        }}
       >
         <ChevronRight size={24} />
       </button>
 
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '1.5rem' }} role="tablist" aria-label="Testimonial slides">
-        {items.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            role="tab"
-            aria-selected={i === index}
-            aria-label={`Go to testimonial ${i + 1}`}
-            onClick={() => setIndex(i)}
-            style={{
-              width: i === index ? 28 : 10,
-              height: 10,
-              borderRadius: 999,
-              border: 'none',
-              padding: 0,
-              cursor: 'pointer',
-              background: i === index ? 'var(--color-primary)' : 'rgba(255,255,255,0.2)',
-              transition: 'width 0.25s ease, background 0.2s ease',
-            }}
-          />
-        ))}
+      <div className="testimonial-slider__dots testimonial-slider__dots--desktop" role="tablist" aria-label="Testimonial slides">
+        {renderDots()}
       </div>
     </div>
   );
