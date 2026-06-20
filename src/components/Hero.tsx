@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-stretch justify-start overflow-hidden pt-[clamp(6.5rem,14vh,10rem)]">
       {/* Background: inset:0 so the layer has real height (100% fails when parent only has min-height). */}
-      <div className="absolute inset-0 z-0 opacity-80">
+      <div className="absolute inset-0 z-0 opacity-80 pointer-events-none lg:pointer-events-auto">
         <WebGLErrorBoundary>
           <Ballpit
             count={100}
