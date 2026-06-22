@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import type { Testimonial } from '@/data/homeMarketingContent';
 
@@ -87,14 +86,12 @@ export const TestimonialSlider: React.FC<Props> = ({ items, autoMs = 8000 }) => 
     return (
       <div className="testimonial-slider testimonial-slider--mobile">
         <div aria-live="polite" aria-atomic="true" className="testimonial-slider__track">
-          <motion.div
+          <div
             key={current.name + String(index)}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="testimonial-slider__slide testimonial-slider__slide--mobile"
           >
             {renderTestimonial(current, true)}
-          </motion.div>
+          </div>
         </div>
 
         <div className="testimonial-slider__controls">
@@ -111,35 +108,26 @@ export const TestimonialSlider: React.FC<Props> = ({ items, autoMs = 8000 }) => 
   return (
     <div className="testimonial-slider">
       <div aria-live="polite" aria-atomic="true" className="testimonial-slider__track testimonial-slider__track--desktop">
-        <motion.div
+        <div
           key={items[prevIndex].name + String(prevIndex)}
           className="testimonial-slider__slide testimonial-slider__slide--side"
-          initial={{ opacity: 0.5, scale: 0.9 }}
-          animate={{ opacity: 0.5, scale: 0.9 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
           {renderTestimonial(items[prevIndex], false)}
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           key={current.name + String(index)}
           className="testimonial-slider__slide testimonial-slider__slide--center"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
           {renderTestimonial(current, true)}
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           key={items[nextIndex].name + String(nextIndex)}
           className="testimonial-slider__slide testimonial-slider__slide--side"
-          initial={{ opacity: 0.5, scale: 0.9 }}
-          animate={{ opacity: 0.5, scale: 0.9 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
           {renderTestimonial(items[nextIndex], false)}
-        </motion.div>
+        </div>
       </div>
 
       <button

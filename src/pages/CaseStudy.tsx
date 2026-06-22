@@ -43,8 +43,8 @@ const CaseStudy: React.FC = () => {
             <span className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold uppercase tracking-wider">
               {project.category}
             </span>
-            <span className="text-muted font-medium">Client: <span className="text-white">{project.client}</span></span>
-            <span className="text-muted font-medium">Timeline: <span className="text-white">{project.timeline}</span></span>
+            <span className="text-muted font-medium">Client: <span className="text-[#0f1b33]">{project.client}</span></span>
+            <span className="text-muted font-medium">Timeline: <span className="text-[#0f1b33]">{project.timeline}</span></span>
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
@@ -58,11 +58,14 @@ const CaseStudy: React.FC = () => {
 
       {/* Main Cover Image */}
       <div className="container mb-20">
-        <div className="w-full h-[60vh] min-h-[500px] rounded-3xl overflow-hidden border border-white/5 shadow-2xl">
+        <div className="w-full h-[60vh] min-h-[500px] rounded-3xl overflow-hidden border border-[rgba(15,27,51,0.08)] shadow-2xl">
           <img 
             src={project.image} 
             alt={project.title} 
             className="w-full h-full object-cover"
+            loading="eager"
+            width="1200"
+            height="800"
           />
         </div>
       </div>
@@ -72,7 +75,7 @@ const CaseStudy: React.FC = () => {
           
           {/* Left Column: Content */}
           <div className="lg:col-span-8">
-            <div className="prose prose-invert prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none">
               
               <h2 className="text-3xl font-bold mb-6 gradient-text-alt">The Challenge</h2>
               <p className="text-muted leading-relaxed mb-12 text-lg">
@@ -80,8 +83,15 @@ const CaseStudy: React.FC = () => {
               </p>
 
               {/* First Content Image */}
-              <div className="rounded-2xl overflow-hidden mb-12 border border-white/5 shadow-2xl">
-                <img src={project.contentImages[0]} alt="Project Detail 1" className="w-full h-auto object-cover" />
+              <div className="rounded-2xl overflow-hidden mb-12 border border-[rgba(15,27,51,0.08)] shadow-2xl">
+                <img 
+                  src={project.contentImages[0]} 
+                  alt="Project Detail 1" 
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                  width="800"
+                  height="600"
+                />
               </div>
 
               <h2 className="text-3xl font-bold mb-6 gradient-text-alt">Our Solution</h2>
@@ -90,8 +100,15 @@ const CaseStudy: React.FC = () => {
               </p>
 
               {/* Second Content Image */}
-              <div className="rounded-2xl overflow-hidden mb-12 border border-white/5 shadow-2xl">
-                <img src={project.contentImages[1]} alt="Project Detail 2" className="w-full h-auto object-cover" />
+              <div className="rounded-2xl overflow-hidden mb-12 border border-[rgba(15,27,51,0.08)] shadow-2xl">
+                <img 
+                  src={project.contentImages[1]} 
+                  alt="Project Detail 2" 
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                  width="800"
+                  height="600"
+                />
               </div>
 
               <h2 className="text-3xl font-bold mb-6 gradient-text-alt">The Impact</h2>
@@ -108,7 +125,7 @@ const CaseStudy: React.FC = () => {
               
               {/* Metrics Card */}
               <div className="card glass p-8">
-                <h3 className="text-xl font-bold mb-6 border-b border-white/10 pb-4">Key Results</h3>
+                <h3 className="text-xl font-bold mb-6 border-b border-[rgba(15,27,51,0.1)] pb-4">Key Results</h3>
                 <div className="flex flex-col gap-6">
                   {project.results.map((result, idx) => (
                     <div key={idx}>
@@ -121,12 +138,12 @@ const CaseStudy: React.FC = () => {
 
               {/* Services Card */}
               <div className="card glass p-8">
-                <h3 className="text-xl font-bold mb-6 border-b border-white/10 pb-4">Services Provided</h3>
+                <h3 className="text-xl font-bold mb-6 border-b border-[rgba(15,27,51,0.1)] pb-4">Services Provided</h3>
                 <ul className="flex flex-col gap-4">
                   {project.services.map((service, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle2 className="text-primary shrink-0 mt-0.5" size={20} />
-                      <span className="text-white font-medium">{service}</span>
+                      <span className="text-[#0f1b33] font-medium">{service}</span>
                     </li>
                   ))}
                 </ul>
@@ -147,7 +164,7 @@ const CaseStudy: React.FC = () => {
       </div>
 
       {/* Other Projects Section */}
-      <div className="container mt-24 pt-16 border-t border-white/5">
+      <div className="container mt-24 pt-16 border-t border-[rgba(15,27,51,0.08)]">
         <h2 className="text-3xl font-bold mb-10 text-center">More Success Stories</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {otherProjects.map((p, idx) => (

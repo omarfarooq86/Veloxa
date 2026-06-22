@@ -94,7 +94,7 @@ export const HomeExtendedSections: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(15,27,51,0.08)',
                     width: '180px',
                     height: '100px',
                     flexShrink: 0
@@ -103,7 +103,7 @@ export const HomeExtendedSections: React.FC = () => {
                   <img 
                     src={logo.src} 
                     alt={logo.alt} 
-                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) invert(1) opacity(0.7)' }} 
+                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) opacity(0.55)' }} 
                   />
                 </div>
               ))}
@@ -119,7 +119,7 @@ export const HomeExtendedSections: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    border: '1px solid rgba(255,255,255,0.06)',
+                    border: '1px solid rgba(15,27,51,0.08)',
                     width: '180px',
                     height: '100px',
                     flexShrink: 0
@@ -128,7 +128,7 @@ export const HomeExtendedSections: React.FC = () => {
                   <img 
                     src={logo.src} 
                     alt={logo.alt} 
-                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) invert(1) opacity(0.7)' }} 
+                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) opacity(0.55)' }} 
                   />
                 </div>
               ))}

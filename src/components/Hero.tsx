@@ -1,24 +1,17 @@
 import React from 'react';
 import { Sparkles } from 'lucide-react';
-// @ts-expect-error No type definitions for JSX file
-import Ballpit from '@/components/Ballpit';
-import { WebGLErrorBoundary } from '@/components/WebGLErrorBoundary';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-stretch justify-start overflow-hidden pt-[clamp(6.5rem,14vh,10rem)]">
-      {/* Background: inset:0 so the layer has real height (100% fails when parent only has min-height). */}
-      <div className="absolute inset-0 z-0 opacity-80 pointer-events-none lg:pointer-events-auto">
-        <WebGLErrorBoundary>
-          <Ballpit
-            count={100}
-            gravity={0.5}
-            friction={0.9975}
-            wallBounce={0.95}
-            followCursor={true}
-            colors={["#5227FF","#7cff67","#ff6b6b"]}
-          />
-        </WebGLErrorBoundary>
+    <section
+      className="relative min-h-screen flex flex-col items-stretch justify-start overflow-hidden pt-[clamp(6.5rem,14vh,10rem)] text-white"
+      style={{ background: 'radial-gradient(120% 120% at 50% 0%, #11203f 0%, #0a1226 55%, #070d1c 100%)' }}
+    >
+      {/* Subtle animated gradient background */}
+      <div className="absolute inset-0 z-0 opacity-30">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-secondary/20 animate-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-blob" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-blob animation-delay-2000" />
       </div>
 
       <div className="container relative z-10 pointer-events-none">

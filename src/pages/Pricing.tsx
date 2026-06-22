@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
 import { Check } from 'lucide-react';
 
@@ -441,7 +442,91 @@ const Pricing: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('bundles');
 
   useEffect(() => {
-    document.title = 'Pricing | Veloxa';
+    // Title tag
+    document.title = 'Transparent Pricing | Veloxa';
+    
+    // Meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const description = 'Value-driven pricing packages for web development, SEO, digital marketing, and app development. No hidden fees, just results for businesses of all sizes.';
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+    
+    // Canonical URL
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const canonicalUrl = 'https://veloxa.com/pricing';
+    if (canonical) {
+      canonical.setAttribute('href', canonicalUrl);
+    } else {
+      const link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = canonicalUrl;
+      document.head.appendChild(link);
+    }
+    
+    // Open Graph tags
+    const updateOG = (property: string, content: string) => {
+      const og = document.querySelector(`meta[property="${property}"]`) || document.querySelector(`meta[name="${property}"]`);
+      if (og) {
+        og.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateOG('og:title', 'Transparent Pricing | Veloxa');
+    updateOG('og:description', description);
+    updateOG('og:url', canonicalUrl);
+    updateOG('og:type', 'website');
+    
+    // Twitter Card
+    const updateTwitter = (name: string, content: string) => {
+      const twitter = document.querySelector(`meta[name="${name}"]`);
+      if (twitter) {
+        twitter.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = name;
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateTwitter('twitter:card', 'summary_large_image');
+    updateTwitter('twitter:title', 'Transparent Pricing | Veloxa');
+    updateTwitter('twitter:description', description);
+    
+    // FAQ schema for pricing page
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.a
+        }
+      }))
+    };
+    
+    // Remove existing schema
+    const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]');
+    existingSchemas.forEach(schema => schema.remove());
+    
+    // Add new schema
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(faqSchema);
+    document.head.appendChild(script);
   }, []);
 
   const currentPlans = pricingData[activeTab];
@@ -460,10 +545,10 @@ const Pricing: React.FC = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-all ${
+              className={`px-6 py-3 rounded-full text-sm font-medium transition-all border ${
                 activeTab === tab.id
-                  ? 'bg-primary text-white'
-                  : 'bg-white/5 text-white hover:bg-white/10'
+                  ? 'bg-primary text-white border-primary shadow-neon-primary'
+                  : 'bg-white text-[#0f1b33] border-[rgba(15,27,51,0.12)] hover:border-primary hover:text-primary'
               }`}
             >
               {tab.label}
@@ -478,7 +563,7 @@ const Pricing: React.FC = () => {
               {currentPlans.map((plan: any, idx: number) => (
                 <div
                   key={idx}
-                  className={`card animate-fade-up relative ${plan.popular ? 'glass border-primary scale-105 z-10' : 'border-white/5 z-0'}`}
+                  className={`card animate-fade-up relative ${plan.popular ? 'border-primary shadow-[0_18px_50px_rgba(47,107,255,0.18)] scale-105 z-10' : 'z-0'}`}
                   style={{ animationDelay: `${idx * 0.1}s` }}
                 >
                   {plan.popular && (
@@ -495,16 +580,16 @@ const Pricing: React.FC = () => {
                     <span className="text-muted text-base">{plan.interval === 'one-time' ? '' : plan.interval}</span>
                   </div>
                   
-                  <a href={plan.link} className={`btn ${plan.popular ? 'btn-primary' : 'btn-outline'} mb-8 w-full`}>
+                  <Link to={plan.link} className={`btn ${plan.popular ? 'btn-primary' : 'btn-outline'} mb-8 w-full`}>
                     {plan.cta}
-                  </a>
+                  </Link>
                   
                   <div className="flex flex-col gap-4">
                     <p className="font-semibold text-sm uppercase text-muted">What's Included</p>
                     {plan.features.map((feature: string, i: number) => (
                       <div key={i} className="flex items-start gap-3">
                         <Check size={18} className="text-secondary shrink-0 mt-1" />
-                        <span className="text-sm text-white">{feature}</span>
+                        <span className="text-sm text-[#0f1b33]">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -518,7 +603,7 @@ const Pricing: React.FC = () => {
               <div className="grid grid-3 gap-4">
                 {addOns.map((addon: { name: string; price: string }, idx: number) => (
                   <div key={idx} className="card p-4 flex justify-between items-center">
-                    <span className="text-white">{addon.name}</span>
+                    <span className="text-[#0f1b33]">{addon.name}</span>
                     <span className="text-secondary font-semibold">{addon.price}</span>
                   </div>
                 ))}

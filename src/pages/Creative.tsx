@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
-import { Palette, PenTool, Image as ImageIcon, Video, CheckCircle2 } from 'lucide-react';
+import { Palette, PenTool, Image as ImageIcon, Video, CheckCircle2, ChevronRight } from 'lucide-react';
 
 const creativeServices = [
   {
@@ -27,11 +28,158 @@ const creativeServices = [
 
 const Creative: React.FC = () => {
   useEffect(() => {
-    document.title = 'Creative Services | Veloxa';
+    // Title tag
+    document.title = 'Creative & Branding Services | Veloxa';
+    
+    // Meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const description = 'Captivating branding and creative services that make your business stand out. Logo design, brand identity, marketing collateral, and digital graphics.';
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+    
+    // Canonical URL
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const canonicalUrl = 'https://veloxa.com/creative';
+    if (canonical) {
+      canonical.setAttribute('href', canonicalUrl);
+    } else {
+      const link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = canonicalUrl;
+      document.head.appendChild(link);
+    }
+    
+    // Open Graph tags
+    const updateOG = (property: string, content: string) => {
+      const og = document.querySelector(`meta[property="${property}"]`) || document.querySelector(`meta[name="${property}"]`);
+      if (og) {
+        og.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateOG('og:title', 'Creative & Branding Services | Veloxa');
+    updateOG('og:description', description);
+    updateOG('og:url', canonicalUrl);
+    updateOG('og:type', 'website');
+    
+    // Twitter Card
+    const updateTwitter = (name: string, content: string) => {
+      const twitter = document.querySelector(`meta[name="${name}"]`);
+      if (twitter) {
+        twitter.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = name;
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateTwitter('twitter:card', 'summary_large_image');
+    updateTwitter('twitter:title', 'Creative & Branding Services | Veloxa');
+    updateTwitter('twitter:description', description);
+    
+    // Service schema
+    const serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Creative & Branding Services',
+      description: description,
+      provider: {
+        '@type': 'Organization',
+        name: 'Veloxa',
+        url: 'https://veloxa.com'
+      },
+      areaServed: 'Pakistan',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Creative Services',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Brand Identity & Logo'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Marketing Collateral'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Digital & Social Graphics'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Motion & Video'
+            }
+          }
+        ]
+      }
+    };
+    
+    // BreadcrumbList schema
+    const breadcrumbSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://veloxa.com'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Creative',
+          item: canonicalUrl
+        }
+      ]
+    };
+    
+    // Remove existing schema
+    const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]');
+    existingSchemas.forEach(schema => schema.remove());
+    
+    // Add new schema
+    [serviceSchema, breadcrumbSchema].forEach(schemaData => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(schemaData);
+      document.head.appendChild(script);
+    });
   }, []);
 
   return (
     <div>
+      {/* Breadcrumbs */}
+      <nav className="container pt-24 pb-4 flex items-center gap-2 text-sm text-muted">
+        <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+        <ChevronRight size={14} />
+        <span className="text-[#0f1b33]">Creative</span>
+      </nav>
+      
       <PageHeader 
         title="Creative & Branding" 
         description="Captivating branding and creative assets that make your business stand out in a crowded market." 
@@ -73,7 +221,10 @@ const Creative: React.FC = () => {
             <img 
               src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80&auto=format&fit=crop" 
               alt="Creative Color Palettes" 
-              className="w-full rounded-3xl shadow-2xl" 
+              className="w-full rounded-3xl shadow-2xl"
+              loading="lazy"
+              width="800"
+              height="600"
             />
           </div>
           <div className="animate-fade-up order-first md:order-first">
@@ -89,7 +240,7 @@ const Creative: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <a href="/contact" className="btn btn-outline">Consult With Our Designers</a>
+            <Link to="/contact" className="btn btn-outline">Consult With Our Designers</Link>
           </div>
         </div>
       </section>

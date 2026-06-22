@@ -4,7 +4,7 @@ import { Send, Camera, Briefcase, Users } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="section" style={{ background: 'var(--color-surface)', paddingBottom: '2rem' }}>
+    <footer className="section footer-dark" style={{ background: 'linear-gradient(135deg, #0a1226, #11203f)', paddingBottom: '2rem' }}>
       <div className="container">
         <div className="grid grid-3 mb-4">
           <div>

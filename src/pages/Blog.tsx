@@ -29,6 +29,9 @@ const Blog: React.FC = () => {
                 src={featuredPost.image} 
                 alt={featuredPost.title} 
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
+                width="800"
+                height="600"
               />
             </div>
             <div className="p-12 flex flex-col justify-center">
@@ -60,6 +63,9 @@ const Blog: React.FC = () => {
                   src={post.image} 
                   alt={post.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                  width="400"
+                  height="220"
                 />
               </div>
               <div className="p-8 grow flex flex-col">
@@ -69,11 +75,11 @@ const Blog: React.FC = () => {
                 <h4 className="mb-3 text-xl">{post.title}</h4>
                 <p className="text-muted mb-6 text-sm grow">{post.excerpt}</p>
                 
-                <div className="flex items-center justify-between border-t border-white/5 pt-5">
+                <div className="flex items-center justify-between border-t border-[rgba(15,27,51,0.08)] pt-5">
                   <div className="text-muted text-xs">
                     {post.date}
                   </div>
-                  <div className="flex items-center text-white group-hover:text-primary transition-colors">
+                  <div className="flex items-center text-[#0f1b33] group-hover:text-primary transition-colors">
                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
@@ -91,12 +97,15 @@ const Blog: React.FC = () => {
               Subscribe to our newsletter for exclusive marketing insights delivered straight to your inbox.
             </p>
             <form className="flex gap-4 max-w-lg mx-auto">
+              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
               <input 
+                id="newsletter-email"
                 type="email" 
                 placeholder="Your email address" 
-                className="grow px-5 py-3 rounded-xl border border-white/10 bg-black/20 text-white outline-none focus:border-primary" 
+                className="grow px-5 py-3 rounded-xl border border-[rgba(15,27,51,0.14)] bg-surface text-[#0f1b33] outline-none focus:border-primary" 
+                required
               />
-              <button type="button" className="btn btn-primary px-6 py-3">Subscribe</button>
+              <button type="submit" className="btn btn-primary px-6 py-3">Subscribe</button>
             </form>
           </div>
         </div>

@@ -7,7 +7,100 @@ import { portfolioProjects } from '@/data/portfolioProjects';
 
 const Portfolio: React.FC = () => {
   useEffect(() => {
+    // Title tag
     document.title = 'Our Portfolio | Veloxa';
+    
+    // Meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const description = 'Explore our portfolio of successful digital marketing, SEO, web design, and branding projects. See how we help businesses grow and scale their revenue.';
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+    
+    // Canonical URL
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const canonicalUrl = 'https://veloxa.com/portfolio';
+    if (canonical) {
+      canonical.setAttribute('href', canonicalUrl);
+    } else {
+      const link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = canonicalUrl;
+      document.head.appendChild(link);
+    }
+    
+    // Open Graph tags
+    const updateOG = (property: string, content: string) => {
+      const og = document.querySelector(`meta[property="${property}"]`) || document.querySelector(`meta[name="${property}"]`);
+      if (og) {
+        og.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateOG('og:title', 'Our Portfolio | Veloxa');
+    updateOG('og:description', description);
+    updateOG('og:url', canonicalUrl);
+    updateOG('og:type', 'website');
+    
+    // Twitter Card
+    const updateTwitter = (name: string, content: string) => {
+      const twitter = document.querySelector(`meta[name="${name}"]`);
+      if (twitter) {
+        twitter.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = name;
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateTwitter('twitter:card', 'summary_large_image');
+    updateTwitter('twitter:title', 'Our Portfolio | Veloxa');
+    updateTwitter('twitter:description', description);
+    
+    // Collection schema for portfolio
+    const collectionSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Veloxa Portfolio',
+      description: description,
+      url: canonicalUrl,
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: portfolioProjects.map((project, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: {
+            '@type': 'CreativeWork',
+            name: project.title,
+            description: project.description,
+            image: project.image,
+            url: `https://veloxa.com/portfolio/${project.slug}`
+          }
+        }))
+      }
+    };
+    
+    // Remove existing schema
+    const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]');
+    existingSchemas.forEach(schema => schema.remove());
+    
+    // Add new schema
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(collectionSchema);
+    document.head.appendChild(script);
   }, []);
 
   return (
@@ -26,6 +119,9 @@ const Portfolio: React.FC = () => {
                   src={project.image} 
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  width="400"
+                  height="240"
                 />
               </div>
               <div className="p-8 flex flex-col grow">
@@ -44,15 +140,15 @@ const Portfolio: React.FC = () => {
         </div>
       </section>
 
-      <section className="section glass mx-6 my-8 mb-16 rounded-3xl">
+      <section className="section cta-dark mx-6 my-8 mb-16 rounded-3xl">
         <div className="container text-center">
           <h2 className="animate-fade-up mb-4">Want Your Project Featured Here?</h2>
           <p className="text-muted animate-fade-up delay-1 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
             Partner with Veloxa to elevate your brand and achieve measurable digital growth.
           </p>
-          <a href="/contact" className="btn btn-primary animate-fade-up delay-2">
+          <Link to="/contact" className="btn btn-primary animate-fade-up delay-2">
             Let's Discuss Your Vision
-          </a>
+          </Link>
         </div>
       </section>
     </div>

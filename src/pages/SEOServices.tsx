@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
-import { Target, TrendingUp, Compass, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Target, TrendingUp, Compass, CheckCircle2, ShieldCheck, ChevronRight } from 'lucide-react';
 
 const auditBenefits = [
   {
@@ -64,11 +65,158 @@ const serviceModels = [
 
 const SEOServices: React.FC = () => {
   useEffect(() => {
+    // Title tag
     document.title = 'SEO Services | Veloxa';
+    
+    // Meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const description = 'Professional SEO services that drive organic traffic and revenue. Full transparency, real results, and data-driven strategies for sustainable growth.';
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+    
+    // Canonical URL
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const canonicalUrl = 'https://veloxa.com/seo-services';
+    if (canonical) {
+      canonical.setAttribute('href', canonicalUrl);
+    } else {
+      const link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = canonicalUrl;
+      document.head.appendChild(link);
+    }
+    
+    // Open Graph tags
+    const updateOG = (property: string, content: string) => {
+      const og = document.querySelector(`meta[property="${property}"]`) || document.querySelector(`meta[name="${property}"]`);
+      if (og) {
+        og.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateOG('og:title', 'SEO Services | Veloxa');
+    updateOG('og:description', description);
+    updateOG('og:url', canonicalUrl);
+    updateOG('og:type', 'website');
+    
+    // Twitter Card
+    const updateTwitter = (name: string, content: string) => {
+      const twitter = document.querySelector(`meta[name="${name}"]`);
+      if (twitter) {
+        twitter.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = name;
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateTwitter('twitter:card', 'summary_large_image');
+    updateTwitter('twitter:title', 'SEO Services | Veloxa');
+    updateTwitter('twitter:description', description);
+    
+    // Service schema
+    const serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'SEO Services',
+      description: description,
+      provider: {
+        '@type': 'Organization',
+        name: 'Veloxa',
+        url: 'https://veloxa.com'
+      },
+      areaServed: 'Pakistan',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'SEO Services',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'SEO Audit'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Technical SEO'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Content SEO'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Link Building'
+            }
+          }
+        ]
+      }
+    };
+    
+    // BreadcrumbList schema
+    const breadcrumbSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://veloxa.com'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'SEO Services',
+          item: canonicalUrl
+        }
+      ]
+    };
+    
+    // Remove existing schema
+    const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]');
+    existingSchemas.forEach(schema => schema.remove());
+    
+    // Add new schema
+    [serviceSchema, breadcrumbSchema].forEach(schemaData => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(schemaData);
+      document.head.appendChild(script);
+    });
   }, []);
 
   return (
     <div>
+      {/* Breadcrumbs */}
+      <nav className="container pt-24 pb-4 flex items-center gap-2 text-sm text-muted">
+        <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+        <ChevronRight size={14} />
+        <span className="text-[#0f1b33]">SEO Services</span>
+      </nav>
+      
       <PageHeader 
         title="SEO Services" 
         description="You need an SEO agency you can trust. Get full transparency, real results, and a strategy that drives revenue." 
@@ -142,9 +290,9 @@ const SEOServices: React.FC = () => {
                 <h4 className="text-primary mb-1">{model.title}</h4>
                 <h3 className="mb-4">{model.price}</h3>
                 <p className="text-muted mb-8 grow">{model.body}</p>
-                <a href="#contact" className={`btn btn-${model.variant} w-full`}>
+                <Link to="/contact" className={`btn btn-${model.variant} w-full`}>
                   {model.button}
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -178,7 +326,7 @@ const SEOServices: React.FC = () => {
           <p className="text-muted text-lg my-8 mx-auto">
             Discover what's holding your website back and let us show you how we can help grow your business.
           </p>
-          <a href="/contact" className="btn btn-primary">Claim Free Audit</a>
+          <Link to="/contact" className="btn btn-primary">Claim Free Audit</Link>
         </div>
       </section>
     </div>

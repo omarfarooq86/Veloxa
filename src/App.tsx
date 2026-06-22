@@ -14,7 +14,7 @@ import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Contact from './pages/Contact';
-import TargetCursor from './components/TargetCursor';
+import Lahore from './pages/Lahore';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -29,13 +29,13 @@ const ScrollToTop = () => {
 const App: React.FC = () => {
   return (
     <Router>
-      <TargetCursor targetSelector=".cursor-target, .btn, .card, a, button" />
       <ScrollToTop />
       <div className="app-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar />
         <main style={{ flexGrow: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/lahore" element={<Lahore />} />
             <Route path="/seo-services" element={<SEOServices />} />
             <Route path="/web-design" element={<WebDesign />} />
             <Route path="/creative" element={<Creative />} />

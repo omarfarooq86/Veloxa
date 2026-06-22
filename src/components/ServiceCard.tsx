@@ -19,7 +19,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, lin
       <h3 style={{ fontSize: '1.5rem' }} className="mb-2">{title}</h3>
       <p className="text-muted mb-4" style={{ flexGrow: 1 }}>{description}</p>
       <Link to={link} className="text-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600, marginTop: 'auto' }}>
-        Learn More <ArrowRight size={16} />
+        Learn More about {title} <ArrowRight size={16} />
       </Link>
     </div>
   );

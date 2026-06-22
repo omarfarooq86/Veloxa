@@ -1,0 +1,15 @@
+# robots.txt for Veloxa
+# https://veloxa.com
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas if any
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://veloxa.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

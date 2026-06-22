@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { useInView, useMotionValue, useSpring } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface AnimatedCounterProps {
   value: number;
@@ -17,23 +16,55 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   className = '' 
 }) => {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, { duration: 2000, bounce: 0 });
+  const [isVisible, setIsVisible] = useState(false);
+  const [currentValue, setCurrentValue] = useState(0);
 
   useEffect(() => {
-    if (inView) {
-      motionValue.set(value);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '-50px' }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
     }
-  }, [inView, value, motionValue]);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
-    return springValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = `${prefix}${latest.toFixed(decimals)}${suffix}`;
-      }
-    });
-  }, [springValue, prefix, suffix, decimals]);
+    if (!isVisible) return;
 
-  return <span ref={ref} className={className}>{prefix}{(0).toFixed(decimals)}{suffix}</span>;
+    const duration = 2000;
+    const startTime = performance.now();
+    const startValue = 0;
+
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function (ease-out)
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const newValue = startValue + (value - startValue) * easeOut;
+      
+      setCurrentValue(newValue);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, value]);
+
+  return (
+    <span ref={ref} className={className}>
+      {prefix}{currentValue.toFixed(decimals)}{suffix}
+    </span>
+  );
 };

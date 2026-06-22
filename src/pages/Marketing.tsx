@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
-import { Target, Search, Megaphone, Mail, CheckCircle2 } from 'lucide-react';
+import { Target, Search, Megaphone, Mail, CheckCircle2, ChevronRight } from 'lucide-react';
 
 const marketingServices = [
   {
@@ -27,11 +28,158 @@ const marketingServices = [
 
 const Marketing: React.FC = () => {
   useEffect(() => {
-    document.title = 'Digital Marketing | Veloxa';
+    // Title tag
+    document.title = 'Digital Marketing Services | Veloxa';
+    
+    // Meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    const description = 'Omnichannel digital marketing campaigns that generate high-quality leads and explosive growth. PPC, social media, content marketing, and email automation.';
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+    
+    // Canonical URL
+    const canonical = document.querySelector('link[rel="canonical"]');
+    const canonicalUrl = 'https://veloxa.com/marketing';
+    if (canonical) {
+      canonical.setAttribute('href', canonicalUrl);
+    } else {
+      const link = document.createElement('link');
+      link.rel = 'canonical';
+      link.href = canonicalUrl;
+      document.head.appendChild(link);
+    }
+    
+    // Open Graph tags
+    const updateOG = (property: string, content: string) => {
+      const og = document.querySelector(`meta[property="${property}"]`) || document.querySelector(`meta[name="${property}"]`);
+      if (og) {
+        og.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateOG('og:title', 'Digital Marketing Services | Veloxa');
+    updateOG('og:description', description);
+    updateOG('og:url', canonicalUrl);
+    updateOG('og:type', 'website');
+    
+    // Twitter Card
+    const updateTwitter = (name: string, content: string) => {
+      const twitter = document.querySelector(`meta[name="${name}"]`);
+      if (twitter) {
+        twitter.setAttribute('content', content);
+      } else {
+        const meta = document.createElement('meta');
+        meta.name = name;
+        meta.content = content;
+        document.head.appendChild(meta);
+      }
+    };
+    
+    updateTwitter('twitter:card', 'summary_large_image');
+    updateTwitter('twitter:title', 'Digital Marketing Services | Veloxa');
+    updateTwitter('twitter:description', description);
+    
+    // Service schema
+    const serviceSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'Digital Marketing Services',
+      description: description,
+      provider: {
+        '@type': 'Organization',
+        name: 'Veloxa',
+        url: 'https://veloxa.com'
+      },
+      areaServed: 'Pakistan',
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Marketing Services',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'PPC & Search Ads'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Paid Social Media'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Content Marketing'
+            }
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Email & Lifecycle'
+            }
+          }
+        ]
+      }
+    };
+    
+    // BreadcrumbList schema
+    const breadcrumbSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://veloxa.com'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Marketing',
+          item: canonicalUrl
+        }
+      ]
+    };
+    
+    // Remove existing schema
+    const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]');
+    existingSchemas.forEach(schema => schema.remove());
+    
+    // Add new schema
+    [serviceSchema, breadcrumbSchema].forEach(schemaData => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(schemaData);
+      document.head.appendChild(script);
+    });
   }, []);
 
   return (
     <div>
+      {/* Breadcrumbs */}
+      <nav className="container pt-24 pb-4 flex items-center gap-2 text-sm text-muted">
+        <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+        <ChevronRight size={14} />
+        <span className="text-[#0f1b33]">Marketing</span>
+      </nav>
+      
       <PageHeader 
         title="Digital Marketing" 
         description="Omnichannel marketing campaigns that generate high-quality leads and explosive growth." 
@@ -73,7 +221,10 @@ const Marketing: React.FC = () => {
             <img 
               src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format&fit=crop" 
               alt="Marketing Data Analysis" 
-              className="w-full rounded-3xl shadow-2xl" 
+              className="w-full rounded-3xl shadow-2xl"
+              loading="lazy"
+              width="800"
+              height="600"
             />
           </div>
           <div className="animate-fade-up delay-1">
@@ -89,7 +240,7 @@ const Marketing: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <a href="/pricing" className="btn btn-primary">View Pricing Packages</a>
+            <Link to="/pricing" className="btn btn-primary">View Pricing Packages</Link>
           </div>
         </div>
       </section>
