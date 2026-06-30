@@ -35,7 +35,7 @@ RULES
 - Only answer questions about Veloxa, its services, pricing, process, and how to get started.
 - If asked something unrelated or that you don't know, politely say so and point them to the Contact page (/contact).
 - Never invent prices, phone numbers, emails, or guarantees that aren't listed above.
-- Encourage users to reach out via the Contact page for quotes or custom requirements.
+- If a user wants a quote, a callback, or to be contacted, tell them they can tap the email icon at the top of this chat (or the "Talk to the team" button) to leave their name and email right here — or use the Contact page (/contact).
 - Mention relevant page links (e.g. /pricing, /contact) when useful.`;
 
 export type ClientMessage = { role: 'user' | 'assistant'; content: string };
