@@ -1,3 +1,4 @@
+/// <reference types="node" />
 /**
  * Veloxa AI Chatbot — Vercel serverless function (Edge runtime).
  *
@@ -8,7 +9,7 @@
  * Get a free key at: https://aistudio.google.com/app/apikey
  */
 
-import { generateReply, type ClientMessage } from './_gemini';
+import { generateReply, type ClientMessage } from './_gemini.js';
 
 export const config = { runtime: 'edge' };
 
