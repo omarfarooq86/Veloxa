@@ -15,6 +15,24 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-[-10%] left-[20%] w-[45vw] h-[45vw] bg-[#1e4aff]/10 rounded-full blur-[110px] animate-[blob_12s_ease-in-out_infinite_4s]" />
       </div>
 
+      {/* Floating particles - CSS only, performant */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white/10"
+            style={{
+              width: `${Math.random() * 4 + 2}px`,
+              height: `${Math.random() * 4 + 2}px`,
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animation: `float ${Math.random() * 10 + 15}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          />
+        ))}
+      </div>
+
       {/* Grid pattern overlay */}
       <div
         className="absolute inset-0 z-0 opacity-[0.03]"
