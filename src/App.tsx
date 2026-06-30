@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ChatWidget from './components/ChatWidget';
 
 import Home from './pages/Home';
 import SEOServices from './pages/SEOServices';
@@ -49,6 +50,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
+        <ChatWidget />
       </div>
     </Router>
   );
