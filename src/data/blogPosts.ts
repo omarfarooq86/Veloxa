@@ -12,6 +12,166 @@ export interface BlogPostData {
 
 export const blogPosts: BlogPostData[] = [
   {
+    slug: 'ppc-agency',
+    image: 'https://images.pexels.com/photos/6476258/pexels-photo-6476258.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    category: 'PPC',
+    title: 'PPC Agency: What They Do and What to Pay in 2026',
+    excerpt: 'A straight-talking guide to hiring a PPC agency in 2026: what they actually do, honest pricing, the fee structure to avoid, and how to spot one that burns your budget.',
+    date: 'July 10, 2026',
+    readTime: '11 min read',
+    featured: true,
+    content: `
+**A PPC agency manages your paid advertising — Google Ads, Microsoft Ads, and paid social — to turn ad spend into leads and sales, and charges a management fee to run it. The good ones make you money. The bad ones make themselves money.** That difference is the whole game, and most business owners don't spot it until three months and $15,000 in wasted spend have already gone.
+
+I've been doing this 17 years. I once watched a business hand a PPC agency $10,000 a month and end up with a worse cost per lead than a competitor spending $2,500 with one sharp specialist. Paid search rewards discipline, not budget. Pour more money into a badly built account and you don't get more customers. You get a bigger invoice and a nicer-looking chart.
+
+This guide covers what a PPC agency actually does, what you should pay, the fee structure that quietly works against you, when you should not hire one at all, and how to pick one that treats your budget like it's their own.
+
+![PPC agency team reviewing a paid search campaign dashboard](https://images.pexels.com/photos/6696222/pexels-photo-6696222.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## What a PPC Agency Actually Does
+
+PPC stands for pay-per-click. You bid to show an ad, and you pay when someone clicks it. Simple in theory. A minefield in practice — which is exactly why the agency exists.
+
+Strip away the jargon and a good PPC agency does six things:
+
+* **Account strategy** — deciding which platforms, campaigns, and audiences are worth your money before a dollar goes out the door.
+* **Keyword and audience research** — finding the searches that signal a buyer, not a browser. "Emergency electrician near me" is a buyer. "How does electricity work" is a school project.
+* **Ad copy and creative** — writing the ads and building the assets that earn the click without attracting tyre-kickers.
+* **Bid and budget management** — deciding how much each click is worth and shifting spend toward what converts.
+* **Landing page and conversion tracking** — making sure the click lands somewhere that converts, and that you can actually measure it.
+* **Reporting and optimization** — reviewing the numbers and improving the account, week after week.
+
+That last one is where most agencies quietly fall over. Setting up a campaign is a Tuesday afternoon. Improving it every week for a year is a job. One of those is fun. Guess which one gets skipped.
+
+A [PPC agency](/marketing) is not the same as a full-service shop. It lives and dies by paid media. That focus is the point: paid search moves fast, the platforms change every quarter, and a specialist who stares at ad accounts all day will beat a generalist who touches yours once a month.
+
+## What PPC Management Actually Costs in 2026
+
+Here's where the industry gets slippery. There are two numbers you pay: the **ad spend** (money that goes to Google or Meta) and the **management fee** (money that goes to the agency). Agencies love to blur them, because a blurry bill is a bigger bill.
+
+Honest numbers for a mid-sized business:
+
+* **Ad spend**: $1,500–$10,000/month, depending on your market and goals. This is your money, spent on your behalf.
+* **Flat management fee**: $1,000–$2,500/month for most small and mid-sized accounts. This is the model I'd pick every time.
+* **Percentage of ad spend**: 10–20% of what you spend. More on why this one is a trap in a second.
+* **One-off setup or audit fee**: $500–$2,500, sometimes waived if you sign a retainer.
+
+For context, the average cost per click across industries sits around [$1.60 or so on the Search Network](https://www.wordstream.com/average-cost-per-click), though legal, insurance, and finance keywords can run $20 to $50 a click. If you're in one of those, disciplined targeting isn't a nice-to-have. It's the difference between profit and a very expensive lesson.
+
+If someone quotes you $300/month "all in, ads included," here's what you're getting: one campaign, no ongoing work, and a budget so thin it can't buy enough data to optimize. You get what you pay for, and $300 buys you a screenshot.
+
+![Analyzing PPC management costs and fee structures on a laptop](https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## The Fee Structure That Quietly Works Against You
+
+This is my strong opinion for the post, and I'll back it with the maths: **the percentage-of-ad-spend model pays your agency more when they spend more of your money.** Read that twice.
+
+Say your agency takes 15% of spend. At $5,000/month, they earn $750. To earn more, they don't need better results. They need a bigger budget. So when the quarterly review comes around, the recommendation is almost always the same: "We're seeing great momentum — let's scale the budget." Funny how the advice that grows their fee is always the advice.
+
+A flat fee removes that conflict. The agency earns the same whether your budget is $5,000 or $15,000, so their only lever to keep you happy is results. That's the incentive you want: paid to make the account work, not to make it bigger.
+
+The exception is genuinely large accounts, where a small percentage can make sense because managing $200,000/month of spend is real work. But for anything under $20,000/month in spend, a flat fee is almost always the fairer deal. If an agency insists on a percentage for a small account, ask why. The honest ones will have an answer. The rest will talk about "aligned incentives," which is marketing-speak for "we make more when you spend more."
+
+## When You Should NOT Hire a PPC Agency
+
+Most guides won't write this section, because most guides are written by PPC agencies. But talking you out of a bad fit is the single most useful thing I can do here.
+
+Don't hire a PPC agency if:
+
+* **Your website can't convert.** Every click lands on your site. If that site loads in six seconds, looks like 2013, and hides your phone number, you're paying for traffic that leaks straight out the bottom. Fix the [website first](/web-design), then buy traffic. Sending paid clicks to a broken page is arson with extra steps.
+* **Your margins can't cover the clicks.** If you sell a $15 product once, and a click costs $4, the maths doesn't work no matter how good the agency is. PPC needs either healthy margins or repeat customers.
+* **You're spending under $1,000/month.** At that level, agency overhead eats most of the value. A capable freelancer or a few weekends learning Google Ads yourself will stretch further.
+* **You'd be better served by SEO.** If your product isn't urgent and your budget is tight, organic search compounds while paid stops the moment you stop paying. Our [SEO services](/seo-services) exist for exactly this reason. Sometimes the best PPC advice is "do less PPC."
+
+A good agency will tell you when you're not ready. If the first call is all "yes, absolutely, let's launch next week" with no questions about your margins or your site, that's a sales pitch, not a strategy.
+
+## How to Choose a PPC Agency That Won't Burn Your Budget
+
+![Business owner reviewing a PPC agency proposal and contract](https://images.pexels.com/photos/7845356/pexels-photo-7845356.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+After nearly two decades around this industry, the warning signs are always the same. Here's what to watch for before you sign anything.
+
+* **They won't give you ownership of the ad account.** This is the big one. More on it below — it matters enough to have its own section.
+* **They charge a percentage of your ad spend on a small account.** See above. It rewards spending, not performing.
+* **They guarantee a position or a specific ROAS.** Nobody controls the auction. Google itself is clear that [no one can guarantee ad placement or ranking](https://support.google.com/google-ads/answer/2454041). Anyone promising "top spot guaranteed" is either naive or lying, and neither is who you want running your money.
+* **They report clicks and impressions, not leads and revenue.** Impressions don't pay wages. If the monthly report is a wall of vanity metrics with no cost-per-lead or return on ad spend, they're hiding behind activity.
+* **They lock you into a 12-month contract with no exit.** Good agencies keep you with results, not paperwork. Month-to-month, or a short initial term, tells you they back themselves.
+
+Questions worth asking on the first call:
+
+1. **"Will the ad account be in my name and owned by me?"** The only correct answer is yes.
+2. **"Is your fee flat or a percentage of spend?"** Flat is the answer you want.
+3. **"What do you report on each month?"** You want leads, cost per lead, and revenue — not clicks.
+4. **"Who's actually running my account day to day?"** If a slick senior person sells you and a fresh graduate runs it, that's bait-and-switch. Ask for the name of the human touching your account.
+
+## The One Thing Most PPC Agencies Won't Tell You
+
+Here's the take that saves people the most money: **whoever owns your Google Ads account owns your leverage.** Most agencies quietly create the account in their own name, or under their manager account, so that the day you leave, you leave with nothing.
+
+That's not a small thing. Your account holds years of conversion data, audience lists, and optimization history — the stuff that makes a mature account outperform a fresh one. If the agency owns it, they own that history. You walk away and start from zero somewhere else, which is exactly what they're counting on.
+
+Demand ownership on day one. Your account should be created under your own Google Ads ID, and the agency granted access as a manager. If they resist, that resistance is the whole answer. A good agency will happily hand you the keys, because they keep clients by being good, not by holding the account hostage. (I've seen a business held to ransom over their own data. It's about as fun as it sounds.)
+
+While we're here: check their own house. Search for the agency's target keywords. If a PPC agency isn't willing to run ads for itself, or can't rank for its own service, ask how they plan to do for you what they won't do for themselves.
+
+## PPC and AI: What Actually Changed in 2026
+
+![AI-driven PPC automation and campaign optimization on screen](https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+Paid search looks different than it did even two years ago, and any PPC agency worth hiring should be fluent in this.
+
+* **Performance Max and Advantage+ run on AI.** Google and Meta now automate bidding, placement, and creative testing. Used well, they're powerful. Left unsupervised, they'll happily pour your budget into junk placements and call it "learning." The human oversight is the job.
+* **Creative volume matters more than ever.** AI systems need lots of headlines, images, and variations to test. Agencies that still ship two ads per campaign are bringing a spoon to a shovel fight.
+* **Conversion tracking is the new battleground.** With third-party cookies gone, clean first-party tracking and offline conversion imports decide whether the AI optimizes toward real revenue or vanity clicks.
+* **Ads are creeping into AI search.** Google is testing ads inside AI Overviews, and paid placements in AI assistants are coming. It's early, but the agencies experimenting now will have the head start later.
+
+The short version: AI didn't replace the PPC manager. It replaced the boring parts and raised the stakes on the judgment. The account still needs a human deciding what "good" looks like — because the algorithm will optimize toward whatever you tell it, even if what you told it is wrong.
+
+## Frequently Asked Questions
+
+### What does a PPC agency do?
+
+A PPC agency plans, builds, and manages your paid advertising across Google Ads, Microsoft Ads, and paid social. That includes keyword and audience research, ad copy and creative, bid and budget management, landing page and conversion tracking, and ongoing reporting and optimization. The goal is to turn ad spend into measurable leads and sales, not just clicks.
+
+### How much does a PPC agency cost?
+
+Most small and mid-sized businesses pay a flat management fee of $1,000–$2,500/month, or 10–20% of ad spend, on top of the ad budget itself (typically $1,500–$10,000/month). Some agencies also charge a one-off setup fee of $500–$2,500. Choose a flat fee over a percentage of spend wherever you can.
+
+### Is hiring a PPC agency worth it?
+
+It's worth it if your website converts, your margins can cover the clicks, and you're spending enough (roughly $1,000/month or more) to justify the management fee. A good agency brings platform expertise and daily attention you can't easily hire in-house. If your site is broken or your budget is tiny, fix those first.
+
+### What is a fair PPC management fee?
+
+For accounts under $20,000/month in ad spend, a flat fee of $1,000–$2,500/month is fair and keeps the agency's incentives aligned with your results. Percentage-of-spend pricing (10–20%) can make sense on large accounts, but on small ones it quietly rewards the agency for spending more of your money.
+
+### How long before PPC shows results?
+
+PPC can drive traffic and leads within days of launch, but it takes roughly 1–3 months to gather enough data to optimize toward profit. The first month is about learning; the real gains come as the account matures. Anyone promising instant profitability from day one is overselling.
+
+### Should I own my Google Ads account?
+
+Yes, always. Your account should be created under your own Google Ads ID, with the agency granted manager access. That way the conversion data, audience lists, and optimization history stay with you if you ever change agencies. If an agency refuses, treat it as a red flag.
+
+### What's the difference between a PPC agency and a digital marketing agency?
+
+A PPC agency specializes in paid advertising, while a [digital marketing agency](/blog/digital-marketing-agency) covers multiple channels like SEO, content, email, and social alongside paid. Specialists are better when you know paid search is your priority. Full-service agencies are better when you need several channels working together as one system.
+
+### Can I just run PPC myself instead of hiring an agency?
+
+You can, and for very small budgets you probably should. Google Ads is learnable, and a focused solo campaign can work for a simple offer. The case for an agency grows as your spend, your number of campaigns, and the cost of a wasted click all rise. At that point, expert attention usually pays for itself.
+
+## The Sign-Off
+
+A good PPC agency is like a good poker player: patient, unemotional, and quietly ruthless about folding the hands that aren't working. A bad one is the guy at the table who keeps raising because he's "due for a win" — with your chips.
+
+The agencies worth hiring charge a flat fee, hand you the keys to your own account, and can point to a real number on your P&L that got better because of their work. The rest are just very good at spending money that isn't theirs.
+
+If you want the straight talk on whether PPC even makes sense for your business — what to spend, what to expect, and whether you're ready — [give us a call](/contact). No percentage games, no 12-month handcuffs, and definitely no "let's just scale the budget." You can also see [what we've done for other businesses](/portfolio) before you decide.
+    `
+  },
+  {
     slug: 'digital-marketing-services',
     image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1200',
     category: 'Marketing',
