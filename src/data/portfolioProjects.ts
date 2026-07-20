@@ -126,6 +126,72 @@ export const portfolioProjects: PortfolioProject[] = [
     ]
   },
   {
+    slug: 'bazaarnow-marketplace',
+    title: 'BazaarNow Marketplace',
+    category: 'E-commerce Development',
+    description: 'Designed and developed a full-featured multi-category online marketplace, scaling to 1,400+ products, 100+ cities, and nationwide delivery across Pakistan.',
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&q=80',
+    client: 'BazaarNow',
+    timeline: '14 Weeks',
+    services: ['E-commerce Development', 'UI/UX Design', 'Payment Integration', 'SEO'],
+    results: [
+      { metric: '1,419+', label: 'Products Listed at Launch' },
+      { metric: '100+', label: 'Cities Served' },
+      { metric: '7', label: 'Product Categories' }
+    ],
+    challenge: `BazaarNow came to us with a vision: to build Pakistan's most trusted online marketplace that could compete with established international platforms while remaining distinctly Pakistani. They needed a scalable, mobile-first e-commerce platform that could support multiple vendors, integrate local payment gateways like JazzCash and EasyPaisa, and handle nationwide logistics — all while loading fast on Pakistan's diverse range of devices and network conditions.`,
+    solution: `We architected a high-performance Next.js e-commerce platform with a modular component system for easy category scaling. The site was built mobile-first with aggressive image optimization, lazy loading, and a lightweight CSS framework to ensure sub-3-second loads even on 3G connections. We integrated COD, JazzCash, and EasyPaisa payment gateways natively, and built a custom order-tracking dashboard. The SEO architecture included programmatic category pages, rich product snippets, and a fully optimized blog engine to capture long-tail search traffic across electronics, fashion, beauty, and home & living categories.`,
+    impact: `BazaarNow launched with 1,419 products across 7 categories and immediately began serving customers in over 100 cities. The mobile-first design drove a 68% mobile conversion rate, and the local payment integrations removed friction for cash-preferred customers. Within the first quarter, organic search became the #1 traffic source, outperforming paid channels by 3x.`,
+    contentImages: [
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
+      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80'
+    ]
+  },
+  {
+    slug: 'casewalay-ecommerce',
+    title: 'CaseWalay E-commerce',
+    category: 'E-commerce & Digital Marketing',
+    description: 'Built a premium phone case brand from scratch — complete e-commerce site, WhatsApp-first ordering flow, and SEO strategy that captured the Pakistani mobile accessories market.',
+    image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=1200&q=80',
+    client: 'CaseWalay',
+    timeline: '8 Weeks',
+    services: ['E-commerce Development', 'Brand Identity', 'WhatsApp Commerce', 'SEO'],
+    results: [
+      { metric: '8', label: 'Phone Brands Supported' },
+      { metric: '85%', label: 'Orders via WhatsApp' },
+      { metric: '#1', label: 'Ranking for "Phone Cases Pakistan"' }
+    ],
+    challenge: `CaseWalay needed to carve out a niche in Pakistan's competitive phone accessories market. The key challenge was unique: most Pakistani consumers prefer ordering via WhatsApp rather than traditional e-commerce checkouts. The site needed to function as both a beautiful product catalog and a seamless bridge to WhatsApp ordering, while still maintaining strong SEO performance to capture search demand for phone cases across every major brand — iPhone, Samsung, OnePlus, Xiaomi, Oppo, and Vivo.`,
+    solution: `We designed a visually rich, brand-forward e-commerce experience with crystal-clear product photography and intuitive brand-based navigation. Each phone model page was built with SEO-optimized content, schema markup, and high-quality lifestyle imagery. The innovative "Order on WhatsApp" flow pre-populates the customer's selected model, color, and quantity into a WhatsApp message, creating a frictionless ordering experience. We also implemented a dynamic inventory system that allows CaseWalay to manage hundreds of SKUs across multiple brands without admin overhead.`,
+    impact: `The WhatsApp-first ordering model proved to be a massive competitive advantage — 85% of all orders flow through WhatsApp, with an average response-to-order time of under 3 minutes. The SEO strategy secured the #1 ranking for "phone cases Pakistan" and top-3 positions for brand-specific queries. CaseWalay launched with 8 major phone brands covered and has since expanded to serve the entire Pakistani smartphone market.`,
+    contentImages: [
+      'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&q=80',
+      'https://images.unsplash.com/photo-1535157412991-2ef801c1748b?w=800&q=80'
+    ]
+  },
+  {
+    slug: 'customdesignsnow-ecommerce',
+    title: 'Custom Designs Now',
+    category: 'E-commerce & Branding',
+    description: 'Launched a premium custom mug brand with a complete e-commerce site, brand identity, and content strategy — free delivery nationwide with local payment integration.',
+    image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=1200&q=80',
+    client: 'Custom Designs Now',
+    timeline: '6 Weeks',
+    services: ['E-commerce Development', 'Brand Identity', 'Content Strategy', 'Payment Integration'],
+    results: [
+      { metric: '5', label: 'Design Categories Launched' },
+      { metric: '100%', label: 'Nationwide Delivery Coverage' },
+      { metric: '40%', label: 'Return Customer Rate' }
+    ],
+    challenge: `Custom Designs Now wanted to transform Pakistan's gifting culture by making premium custom mugs accessible to everyone. The challenge was twofold: first, design a brand and e-commerce experience that elevated custom mugs from a commodity to a premium, gift-worthy product; second, build a site that could beautifully showcase five distinct design categories — typographic, photo, minimalist, Islamic, and Pakistani culture — each with its own visual identity and target audience.`,
+    solution: `We crafted a warm, inviting brand identity with a custom logo, curated color palette, and consistent typography that communicated premium quality without feeling unapproachable. The e-commerce site was built with a shop-by-design-category architecture, each category featuring its own curated landing page with lifestyle photography and targeted copy. We integrated WhatsApp ordering alongside COD, JazzCash, and EasyPaisa payment options. A content-rich blog was launched to capture gift-idea search traffic, and every product page was armed with structured data for rich search results.`,
+    impact: `The brand resonated immediately with Pakistani consumers. The category-based shopping architecture improved average session duration by 2.5x compared to a standard product grid. Free nationwide delivery and local payment options eliminated all purchase barriers, contributing to a 40% return customer rate. The site now ranks on the first page for high-intent searches like "custom mugs Pakistan" and "personalized gifts Pakistan," driving consistent organic revenue.`,
+    contentImages: [
+      'https://images.unsplash.com/photo-1572119865084-43c285814d63?w=800&q=80',
+      'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80'
+    ]
+  },
+  {
     slug: 'b2b-enterprise-portal',
     title: 'B2B Enterprise Portal',
     category: 'Web Development',
