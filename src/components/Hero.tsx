@@ -162,7 +162,7 @@ const Hero: React.FC = () => {
             <div className="p-3 rounded-2xl bg-white/5 border border-white/10">
               <Zap size={24} className="text-[#1e4aff]" />
             </div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-white/60">Fast Results</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-white/80">Fast Results</p>
           </div>
           <div className="flex flex-col items-center gap-2">
             <div className="p-3 rounded-2xl bg-white/5 border border-white/10">
