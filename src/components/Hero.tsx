@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Hero: React.FC = () => {
   return (
     <section
-      className="relative min-h-screen flex flex-col items-stretch justify-center overflow-hidden text-white"
+      className="relative min-h-screen flex flex-col items-stretch justify-center overflow-hidden text-white pt-28"
       style={{ background: 'radial-gradient(140% 140% at 50% 0%, #11203f 0%, #0a1226 60%, #070d1c 100%)' }}
     >
       {/* Animated gradient orbs - CSS only, performant */}
