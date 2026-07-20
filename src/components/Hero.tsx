@@ -15,18 +15,97 @@ const Hero: React.FC = () => {
         <div className="absolute bottom-[-10%] left-[20%] w-[45vw] h-[45vw] bg-[#1e4aff]/10 rounded-full blur-[110px] animate-[blob_12s_ease-in-out_infinite_4s]" />
       </div>
 
-      {/* Floating particles - CSS only, performant */}
+      {/* Floating particles layer 1 — tiny dots drifting upward */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <div
-            key={i}
-            className="absolute rounded-full bg-white/10"
+            key={`dot-${i}`}
+            className="absolute rounded-full"
             style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
+              width: `${Math.random() * 4 + 1}px`,
+              height: `${Math.random() * 4 + 1}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animation: `float ${Math.random() * 10 + 15}s ease-in-out infinite`,
+              background: i % 5 === 0 ? 'rgba(30,74,255,0.6)' : i % 7 === 0 ? 'rgba(14,165,233,0.5)' : 'rgba(255,255,255,0.25)',
+              boxShadow: i % 5 === 0 ? '0 0 6px rgba(30,74,255,0.4)' : 'none',
+              animation: `float ${Math.random() * 12 + 12}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 8}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating particles layer 2 — medium accent rings & diamonds */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={`ring-${i}`}
+            className="absolute rounded-full border"
+            style={{
+              width: `${Math.random() * 20 + 12}px`,
+              height: `${Math.random() * 20 + 12}px`,
+              left: `${Math.random() * 85 + 5}%`,
+              top: `${Math.random() * 85 + 5}%`,
+              borderColor: i % 3 === 0 ? 'rgba(30,74,255,0.3)' : 'rgba(255,255,255,0.15)',
+              borderWidth: '1px',
+              animation: `ring-pulse ${Math.random() * 6 + 5}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 4}s`,
+            }}
+          />
+        ))}
+        {/* Diamond shapes */}
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={`diamond-${i}`}
+            className="absolute"
+            style={{
+              width: `${Math.random() * 6 + 4}px`,
+              height: `${Math.random() * 6 + 4}px`,
+              left: `${Math.random() * 90 + 5}%`,
+              top: `${Math.random() * 90 + 5}%`,
+              background: i % 2 === 0 ? 'rgba(14,165,233,0.35)' : 'rgba(255,255,255,0.2)',
+              transform: 'rotate(45deg)',
+              borderRadius: '1px',
+              animation: `drift ${Math.random() * 16 + 14}s linear infinite`,
+              animationDelay: `${Math.random() * 10}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Shooting stars — intermittent diagonal streaks */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={`star-${i}`}
+            className="absolute"
+            style={{
+              width: '120px',
+              height: '1px',
+              left: `${Math.random() * 60 + 20}%`,
+              top: `${Math.random() * 30 + 5}%`,
+              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent)',
+              animation: `shooting-star ${Math.random() * 8 + 10}s linear infinite`,
+              animationDelay: `${Math.random() * 12 + i * 5}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Twinkling starfield — static positioned but blinking */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={`twinkle-${i}`}
+            className="absolute rounded-full"
+            style={{
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
+              left: `${Math.random() * 95}%`,
+              top: `${Math.random() * 95}%`,
+              background: 'rgba(255,255,255,0.7)',
+              boxShadow: '0 0 4px rgba(255,255,255,0.4)',
+              animation: `twinkle ${Math.random() * 4 + 3}s ease-in-out infinite`,
               animationDelay: `${Math.random() * 5}s`,
             }}
           />
