@@ -13,7 +13,7 @@ export interface BlogPostData {
 export const blogPosts: BlogPostData[] = [
   {
     slug: 'digital-marketing-company',
-    image: 'https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop',
     category: 'Marketing',
     title: 'Digital Marketing Company: What They Do and What to Pay in 2026',
     excerpt: 'A straight-talking guide to hiring a digital marketing company in 2026: what they actually do, honest pricing, the fee structure to avoid, and how to spot one that wastes your budget.',
@@ -27,7 +27,7 @@ I have been doing this 17 years. Over that time I have watched businesses spend 
 
 This guide covers what a digital marketing company actually does, what their services cost in 2026, the fee models that work against you, when you should not hire one, and how to pick a partner that treats your money like it is their own.
 
-![Digital marketing team collaborating on strategy in a modern office](https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=1200)
+![Digital marketing team collaborating on strategy in a modern office](https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80&auto=format&fit=crop)
 
 ## What a Digital Marketing Company Actually Does
 
@@ -60,7 +60,7 @@ All of these are flat monthly retainers. Third-party tools should be passed thro
 
 If a digital marketing company quotes you $500 per month for "complete marketing services," here is what you are getting: AI-generated blog posts, no original research, no custom strategy, and likely no human checking the work before it lands. You get what you pay for, and $500 buys you very little that works.
 
-![Digital marketing analytics dashboard showing campaign performance metrics](https://images.pexels.com/photos/6696222/pexels-photo-6696222.jpeg?auto=compress&cs=tinysrgb&w=1200)
+![Digital marketing analytics dashboard showing campaign performance metrics](https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80&auto=format&fit=crop)
 
 ## The Fee Structure That Quietly Works Against You
 
@@ -85,7 +85,7 @@ This section matters more than most of what I will say, because the best marketi
 
 A trustworthy digital marketing company will also tell you these things. If the first call has no pushback and no hard questions about your readiness, that is not confidence. That is a sales script.
 
-![Business professional reviewing a digital marketing proposal and contract](https://images.pexels.com/photos/7845356/pexels-photo-7845356.jpeg?auto=compress&cs=tinysrgb&w=1200)
+![Business professional reviewing a digital marketing proposal and contract](https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80&auto=format&fit=crop)
 
 ## How to Choose a Digital Marketing Company That Delivers
 
