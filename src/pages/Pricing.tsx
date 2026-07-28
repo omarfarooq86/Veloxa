@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
-import { Check, ArrowRight, Sparkles } from 'lucide-react';
+import { Check, Sparkles } from 'lucide-react';
 
 type TabType = 'web-development' | 'seo-services' | 'digital-marketing' | 'social-media' | 'content-writing' | 'graphic-design' | 'app-development' | 'bundles';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowUp, ChevronRight, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowUp, ChevronRight } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts';
 
 const BlogPost: React.FC = () => {

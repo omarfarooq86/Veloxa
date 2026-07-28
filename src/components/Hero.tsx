@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ArrowRight, Zap, Target, BarChart3, ChevronDown } from 'lucide-react';
+import { ArrowRight, Zap, Target, BarChart3, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
