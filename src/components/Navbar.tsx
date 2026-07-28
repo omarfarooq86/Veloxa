@@ -30,36 +30,36 @@ const Navbar: React.FC = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-container">
         <Link to="/" className="logo group">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <div className="relative">
-              <Zap className="text-primary size-8 group-hover:animate-pulse transition-all duration-300" />
+              <Zap className="text-primary size-7 group-hover:animate-pulse transition-all duration-300" />
               <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/30 transition-all duration-300" />
             </div>
-            <span className="text-3xl font-extrabold tracking-tight">
+            <span className="text-2xl md:text-3xl font-extrabold tracking-tight">
               <span className="text-primary group-hover:text-primary/80 transition-colors duration-300">Veloxa</span>
-              <span className="text-secondary group-hover:text-secondary/80 transition-colors duration-300">.</span>
+              <span className="text-secondary">.</span>
             </span>
           </div>
         </Link>
-        
+
         <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               to={link.path}
-              className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+              className={`nav-link${location.pathname === link.path ? ' active' : ''}`}
               onClick={() => setMenuOpen(false)}
             >
               {link.name}
             </Link>
           ))}
-          <Link to="/contact" className="btn btn-primary" onClick={() => setMenuOpen(false)}>
-            Get in Touch <ArrowRight size={18} />
+          <Link to="/contact" className="btn btn-primary btn-sm" onClick={() => setMenuOpen(false)}>
+            Get in Touch <ArrowRight size={16} />
           </Link>
         </div>
 
-        <button 
-          className="mobile-menu-btn" 
+        <button
+          className="mobile-menu-btn"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}

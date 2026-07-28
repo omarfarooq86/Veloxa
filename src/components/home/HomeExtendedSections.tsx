@@ -14,9 +14,13 @@ export const HomeExtendedSections: React.FC = () => {
 
   return (
     <>
-      <section className="section" style={{ background: 'var(--color-surface)' }}>
+      {/* ── Industries Section ── */}
+      <section className="section" style={{ background: 'var(--color-bg)' }}>
         <div className="container">
-          <div className="text-center mb-8">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 badge badge-surface mb-4">
+              <span>Verticals</span>
+            </div>
             <h2 className="animate-fade-up">
               Industries <span className="gradient-text-alt">We Work With</span>
             </h2>
@@ -31,30 +35,30 @@ export const HomeExtendedSections: React.FC = () => {
             {industryItems.map((item, idx) => (
               <div
                 key={item.label}
-                className={`card animate-fade-up delay-${(idx % 4) + 1}`}
+                className={`group card animate-fade-up delay-${(idx % 4) + 1}`}
                 style={{ padding: 0, overflow: 'hidden', textAlign: 'center' }}
               >
-                <img
-                  src={item.imageSrc}
-                  alt={item.imageAlt}
-                  width={800}
-                  height={520}
-                  loading="lazy"
-                  decoding="async"
-                  onError={(e) => {
-                    // swap to a lightweight inline SVG fallback when remote image fails
-                    (e.currentTarget as HTMLImageElement).onerror = null;
-                    (e.currentTarget as HTMLImageElement).src = fallbackImage;
-                  }}
-                  style={{
-                    display: 'block',
-                    width: '100%',
-                    height: '200px',
-                    objectFit: 'cover',
-                  }}
-                />
-                <div style={{ padding: '1.5rem 1.75rem 2rem' }}>
-                  <h3 style={{ fontSize: '1.35rem', marginBottom: 0 }}>{item.label}</h3>
+                <div className="relative overflow-hidden">
+                  <img
+                    src={item.imageSrc}
+                    alt={item.imageAlt}
+                    width={800}
+                    height={520}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).onerror = null;
+                      (e.currentTarget as HTMLImageElement).src = fallbackImage;
+                    }}
+                    className="block w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Hover gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-6 pb-7 relative">
+                  {/* Accent line */}
+                  <div className="absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                  <h3 className="text-xl font-bold mb-0 group-hover:text-primary transition-colors duration-300">{item.label}</h3>
                 </div>
               </div>
             ))}
@@ -62,10 +66,14 @@ export const HomeExtendedSections: React.FC = () => {
         </div>
       </section>
 
-      <section className="section" style={{ background: 'var(--color-bg)' }}>
+      {/* ── Testimonials Section ── */}
+      <section className="section" style={{ background: 'var(--color-surface)' }}>
         <div className="container">
-          <div className="text-center mb-8">
-            <h2 className="animate-fade-up">Client Testimonials</h2>
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 badge badge-primary mb-4">
+              <span>Testimonials</span>
+            </div>
+            <h2 className="animate-fade-up">Client <span className="gradient-text-alt">Testimonials</span></h2>
             <p className="text-muted animate-fade-up delay-1" style={{ maxWidth: '640px', margin: '0 auto', fontSize: '1.05rem' }}>
               What some of our satisfied customers are saying
             </p>
@@ -74,10 +82,14 @@ export const HomeExtendedSections: React.FC = () => {
         </div>
       </section>
 
-      <section className="section" style={{ background: 'var(--color-surface)' }}>
+      {/* ── Our Clients / Logo Marquee ── */}
+      <section className="section" style={{ background: 'var(--color-bg)' }}>
         <div className="container">
-          <div className="text-center mb-8">
-            <h2 className="animate-fade-up">Our Clients</h2>
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 badge badge-surface mb-4">
+              <span>Trusted By</span>
+            </div>
+            <h2 className="animate-fade-up">Our <span className="gradient-text-alt">Clients</span></h2>
             <p className="text-muted animate-fade-up delay-1" style={{ maxWidth: '720px', margin: '0 auto', fontSize: '1.1rem', lineHeight: 1.65 }}>
               {ourClientsIntro}
             </p>
@@ -87,23 +99,20 @@ export const HomeExtendedSections: React.FC = () => {
               {clientLogos.map((logo, idx) => (
                 <div
                   key={`first-${idx}`}
-                  className="glass"
+                  className="glass flex items-center justify-center"
                   style={{
                     borderRadius: 'var(--border-radius)',
                     padding: '1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid rgba(15,27,51,0.08)',
+                    border: '1px solid var(--color-border)',
                     width: '180px',
                     height: '100px',
                     flexShrink: 0
                   }}
                 >
-                  <img 
-                    src={logo.src} 
-                    alt={logo.alt} 
-                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) opacity(0.55)' }} 
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) opacity(0.50)' }}
                   />
                 </div>
               ))}
@@ -112,23 +121,20 @@ export const HomeExtendedSections: React.FC = () => {
               {clientLogos.map((logo, idx) => (
                 <div
                   key={`second-${idx}`}
-                  className="glass"
+                  className="glass flex items-center justify-center"
                   style={{
                     borderRadius: 'var(--border-radius)',
                     padding: '1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid rgba(15,27,51,0.08)',
+                    border: '1px solid var(--color-border)',
                     width: '180px',
                     height: '100px',
                     flexShrink: 0
                   }}
                 >
-                  <img 
-                    src={logo.src} 
-                    alt={logo.alt} 
-                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) opacity(0.55)' }} 
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'brightness(0) opacity(0.50)' }}
                   />
                 </div>
               ))}
