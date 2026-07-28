@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
-import { Target, TrendingUp, Compass, CheckCircle2, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Target, TrendingUp, Compass, CheckCircle2, ShieldCheck, ChevronRight, ArrowRight, Star } from 'lucide-react';
 
 const auditBenefits = [
   {
     title: 'Audit Your Current SEO',
     body: 'We perform a deep dive into your technical health, on-page performance, and backlink profile to pinpoint exactly what is holding you back from top rankings.',
-    icon: <ShieldCheck className="text-primary mb-4" size={32} />
+    icon: <ShieldCheck size={26} />
   },
   {
     title: 'Map a Growth Strategy',
     body: 'We analyze your current marketing efforts to ensure they bring in qualified leads, not just inflate vanity metrics, creating a scalable roadmap for growth.',
-    icon: <TrendingUp className="text-secondary mb-4" size={32} />
+    icon: <TrendingUp size={26} />
   },
   {
     title: 'Align With Business Goals',
     body: 'As a strategic partner, we ensure your SEO services are perfectly aligned with your long-term business objectives to drive actual revenue.',
-    icon: <Target className="text-accent mb-4" size={32} />
+    icon: <Target size={26} />
   }
 ];
 
@@ -65,10 +65,7 @@ const serviceModels = [
 
 const SEOServices: React.FC = () => {
   useEffect(() => {
-    // Title tag
     document.title = 'SEO Services | Veloxa';
-    
-    // Meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     const description = 'Professional SEO services that drive organic traffic and revenue. Full transparency, real results, and data-driven strategies for sustainable growth.';
     if (metaDescription) {
@@ -79,8 +76,6 @@ const SEOServices: React.FC = () => {
       meta.content = description;
       document.head.appendChild(meta);
     }
-    
-    // Canonical URL
     const canonical = document.querySelector('link[rel="canonical"]');
     const canonicalUrl = 'https://veloxa.com/seo-services';
     if (canonical) {
@@ -91,115 +86,60 @@ const SEOServices: React.FC = () => {
       link.href = canonicalUrl;
       document.head.appendChild(link);
     }
-    
-    // Open Graph tags
     const updateOG = (property: string, content: string) => {
       const og = document.querySelector(`meta[property="${property}"]`) || document.querySelector(`meta[name="${property}"]`);
-      if (og) {
-        og.setAttribute('content', content);
-      } else {
+      if (og) og.setAttribute('content', content);
+      else {
         const meta = document.createElement('meta');
         meta.setAttribute('property', property);
         meta.content = content;
         document.head.appendChild(meta);
       }
     };
-    
     updateOG('og:title', 'SEO Services | Veloxa');
     updateOG('og:description', description);
     updateOG('og:url', canonicalUrl);
     updateOG('og:type', 'website');
-    
-    // Twitter Card
     const updateTwitter = (name: string, content: string) => {
       const twitter = document.querySelector(`meta[name="${name}"]`);
-      if (twitter) {
-        twitter.setAttribute('content', content);
-      } else {
+      if (twitter) twitter.setAttribute('content', content);
+      else {
         const meta = document.createElement('meta');
         meta.name = name;
         meta.content = content;
         document.head.appendChild(meta);
       }
     };
-    
     updateTwitter('twitter:card', 'summary_large_image');
     updateTwitter('twitter:title', 'SEO Services | Veloxa');
     updateTwitter('twitter:description', description);
-    
-    // Service schema
     const serviceSchema = {
       '@context': 'https://schema.org',
       '@type': 'Service',
       name: 'SEO Services',
       description: description,
-      provider: {
-        '@type': 'Organization',
-        name: 'Veloxa',
-        url: 'https://veloxa.com'
-      },
+      provider: { '@type': 'Organization', name: 'Veloxa', url: 'https://veloxa.com' },
       areaServed: 'Pakistan',
       hasOfferCatalog: {
         '@type': 'OfferCatalog',
         name: 'SEO Services',
         itemListElement: [
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'SEO Audit'
-            }
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Technical SEO'
-            }
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Content SEO'
-            }
-          },
-          {
-            '@type': 'Offer',
-            itemOffered: {
-              '@type': 'Service',
-              name: 'Link Building'
-            }
-          }
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO Audit' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Technical SEO' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Content SEO' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Link Building' } }
         ]
       }
     };
-    
-    // BreadcrumbList schema
     const breadcrumbSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: 'https://veloxa.com'
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'SEO Services',
-          item: canonicalUrl
-        }
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://veloxa.com' },
+        { '@type': 'ListItem', position: 2, name: 'SEO Services', item: canonicalUrl }
       ]
     };
-    
-    // Remove existing schema
     const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]');
     existingSchemas.forEach(schema => schema.remove());
-    
-    // Add new schema
     [serviceSchema, breadcrumbSchema].forEach(schemaData => {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
@@ -210,22 +150,25 @@ const SEOServices: React.FC = () => {
 
   return (
     <div>
-      {/* Breadcrumbs */}
       <nav className="container pt-24 pb-4 flex items-center gap-2 text-sm text-muted">
         <Link to="/" className="hover:text-primary transition-colors">Home</Link>
         <ChevronRight size={14} />
-        <span className="text-[#0f1b33]">SEO Services</span>
+        <span className="text-text">SEO Services</span>
       </nav>
-      
-      <PageHeader 
-        title="SEO Services" 
-        description="You need an SEO agency you can trust. Get full transparency, real results, and a strategy that drives revenue." 
+
+      <PageHeader
+        title="SEO Services"
+        description="You need an SEO agency you can trust. Get full transparency, real results, and a strategy that drives revenue."
       />
 
       <section className="section container text-center">
-        <div className="card glass max-w-4xl mx-auto px-8 py-16">
+        <div className="glass-strong max-w-4xl mx-auto px-8 py-16 rounded-2xl">
+          <div className="inline-flex items-center gap-2 badge badge-primary mb-4">
+            <Star size={12} className="fill-primary" />
+            <span>Why SEO Matters</span>
+          </div>
           <h2 className="mb-4">94% of clicks go to organic results. <br/><span className="gradient-text">Ranking at the top isn't optional.</span></h2>
-          <p className="text-muted text-lg leading-relaxed max-w-3xl mx-auto">
+          <p className="text-muted text-lg leading-relaxed max-w-3xl mx-auto text-pretty">
             Most SEO services focus solely on vanity metrics like traffic and rankings. But what good is ranking if it doesn't convert? We go beyond the surface, tying organic search directly to your bottom line to help you turn search intent into sales.
           </p>
         </div>
@@ -233,19 +176,22 @@ const SEOServices: React.FC = () => {
 
       <section className="section bg-surface">
         <div className="container">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 badge badge-surface mb-4">
+              <span>Our Process</span>
+            </div>
             <h2 className="animate-fade-up">What Do You Get With <span className="gradient-text-alt">Our SEO Audit?</span></h2>
-            <p className="text-muted animate-fade-up delay-1 max-w-2xl mx-auto">
+            <p className="text-muted animate-fade-up delay-1 max-w-2xl mx-auto text-lg text-pretty">
               Our audit is a deep dive into your entire strategy. We pinpoint exactly where you're losing rankings and leaving revenue on the table.
             </p>
           </div>
-          
+
           <div className="grid grid-3">
             {auditBenefits.map((benefit, idx) => (
               <div key={idx} className="card animate-fade-up" style={{ animationDelay: `${idx * 0.1}s` }}>
-                {benefit.icon}
-                <h4 className="mb-2">{benefit.title}</h4>
-                <p className="text-muted text-sm">{benefit.body}</p>
+                <div className="card-icon">{benefit.icon}</div>
+                <h4 className="mb-2 text-xl">{benefit.title}</h4>
+                <p className="text-muted leading-relaxed">{benefit.body}</p>
               </div>
             ))}
           </div>
@@ -253,23 +199,26 @@ const SEOServices: React.FC = () => {
       </section>
 
       <section className="section container">
-        <div className="text-center mb-8">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 badge badge-primary mb-4">
+            <span>Our Approach</span>
+          </div>
           <h2 className="animate-fade-up">The <span className="gradient-text">Three Pillars</span> of Our Approach</h2>
-          <p className="text-muted animate-fade-up delay-1 max-w-3xl mx-auto">
+          <p className="text-muted animate-fade-up delay-1 max-w-3xl mx-auto text-lg text-pretty">
             We address the most common reasons businesses fail to see ROI from their SEO efforts.
           </p>
         </div>
 
-        <div className="grid">
+        <div className="flex flex-col gap-6">
           {corePillars.map((pillar, idx) => (
-            <div key={idx} className="card glass flex flex-col gap-4 animate-fade-up" style={{ animationDelay: `${idx * 0.1}s` }}>
-              <div className="flex items-center gap-4">
-                <Compass className="text-primary" size={28} />
-                <h3 className="m-0">{pillar.title}: <span className="font-normal text-muted">{pillar.subtitle}</span></h3>
+            <div key={idx} className="card animate-fade-up flex flex-col md:flex-row md:items-start gap-6 p-8" style={{ animationDelay: `${idx * 0.1}s` }}>
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                <Compass size={28} />
               </div>
-              <p className="text-muted text-lg leading-relaxed">
-                {pillar.body}
-              </p>
+              <div>
+                <h3 className="mb-2 text-2xl">{pillar.title}: <span className="font-normal text-muted">{pillar.subtitle}</span></h3>
+                <p className="text-muted text-lg leading-relaxed">{pillar.body}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -277,9 +226,12 @@ const SEOServices: React.FC = () => {
 
       <section className="section bg-surface">
         <div className="container">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 badge badge-surface mb-4">
+              <span>Collaboration</span>
+            </div>
             <h2 className="animate-fade-up">How We Can <span className="gradient-text-alt">Work Together</span></h2>
-            <p className="text-muted animate-fade-up delay-1 max-w-2xl mx-auto">
+            <p className="text-muted animate-fade-up delay-1 max-w-2xl mx-auto text-lg text-pretty">
               Whether you need a one-time roadmap or a fully managed SEO team, we have a model that fits your needs.
             </p>
           </div>
@@ -287,11 +239,11 @@ const SEOServices: React.FC = () => {
           <div className="grid grid-3">
             {serviceModels.map((model, idx) => (
               <div key={idx} className="card flex flex-col animate-fade-up" style={{ animationDelay: `${idx * 0.1}s` }}>
-                <h4 className="text-primary mb-1">{model.title}</h4>
-                <h3 className="mb-4">{model.price}</h3>
-                <p className="text-muted mb-8 grow">{model.body}</p>
+                <p className="badge badge-primary mb-3 w-fit">{model.title}</p>
+                <h3 className="mb-4 text-3xl">{model.price}</h3>
+                <p className="text-muted mb-8 grow leading-relaxed">{model.body}</p>
                 <Link to="/contact" className={`btn btn-${model.variant} w-full`}>
-                  {model.button}
+                  {model.button} <ArrowRight size={16} />
                 </Link>
               </div>
             ))}
@@ -300,20 +252,23 @@ const SEOServices: React.FC = () => {
       </section>
 
       <section className="section container text-center">
-        <div className="card glass max-w-3xl mx-auto p-12">
-          <h2 className="mb-4">"It doesn't feel like you are working with an outside vendor, but rather an extension of your team."</h2>
+        <div className="glass-strong max-w-3xl mx-auto p-12 rounded-2xl">
+          <div className="inline-flex items-center gap-2 badge badge-primary mb-4">
+            <span>Testimonial</span>
+          </div>
+          <h2 className="mb-4 text-2xl md:text-3xl">&ldquo;It doesn't feel like you are working with an outside vendor, but rather an extension of your team.&rdquo;</h2>
           <p className="text-muted mb-6">— Nicole, Marketing Director</p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="text-secondary" size={20} />
+          <div className="flex justify-center gap-6 flex-wrap">
+            <div className="flex items-center gap-2 text-sm">
+              <CheckCircle2 className="text-secondary shrink-0" size={18} />
               <span>Full Transparency</span>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="text-secondary" size={20} />
+            <div className="flex items-center gap-2 text-sm">
+              <CheckCircle2 className="text-secondary shrink-0" size={18} />
               <span>Consistent Results</span>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="text-secondary" size={20} />
+            <div className="flex items-center gap-2 text-sm">
+              <CheckCircle2 className="text-secondary shrink-0" size={18} />
               <span>Revenue Focused</span>
             </div>
           </div>
@@ -321,12 +276,17 @@ const SEOServices: React.FC = () => {
       </section>
 
       <section id="contact" className="section container text-center">
-        <div className="card max-w-3xl mx-auto">
-          <h3>Get Your Free SEO Audit Today</h3>
-          <p className="text-muted text-lg my-8 mx-auto">
+        <div className="cta-dark rounded-2xl p-12 md:p-16">
+          <div className="inline-flex items-center gap-2 badge bg-white/10 text-white border-white/10 mb-4">
+            <span>Get Started</span>
+          </div>
+          <h3 className="text-white mb-4">Get Your Free SEO Audit Today</h3>
+          <p className="text-white/60 text-lg mb-8 max-w-xl mx-auto text-pretty">
             Discover what's holding your website back and let us show you how we can help grow your business.
           </p>
-          <Link to="/contact" className="btn btn-primary">Claim Free Audit</Link>
+          <Link to="/contact" className="btn bg-white text-navy hover:bg-white/90 shadow-lg">
+            Claim Free Audit <ArrowRight size={18} />
+          </Link>
         </div>
       </section>
     </div>
