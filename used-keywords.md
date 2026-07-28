@@ -9,3 +9,4 @@ Never reuse a primary keyword listed here.
 | digital marketing agency | Digital Marketing Agency: How to Pick One That Actually Works | digital-marketing-agency | June 22, 2026 |
 | digital marketing services | Digital Marketing Services: What's Actually Worth Paying For | digital-marketing-services | July 3, 2026 |
 | ppc agency | PPC Agency: What They Do and What to Pay in 2026 | ppc-agency | July 10, 2026 |
+| digital marketing company | Digital Marketing Company: What They Do and What to Pay in 2026 | digital-marketing-company | July 28, 2026 |

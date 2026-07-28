@@ -12,6 +12,148 @@ export interface BlogPostData {
 
 export const blogPosts: BlogPostData[] = [
   {
+    slug: 'digital-marketing-company',
+    image: 'https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    category: 'Marketing',
+    title: 'Digital Marketing Company: What They Do and What to Pay in 2026',
+    excerpt: 'A straight-talking guide to hiring a digital marketing company in 2026: what they actually do, honest pricing, the fee structure to avoid, and how to spot one that wastes your budget.',
+    date: 'July 28, 2026',
+    readTime: '12 min read',
+    featured: true,
+    content: `
+**A digital marketing company helps businesses grow online through SEO, paid advertising, content, social media, email, and web design. The good ones are an extension of your team. The bad ones are just expensive overhead that sounds busy without moving anything.** That gap is wider than most business owners realise, and the difference usually shows up in the first 90 days.
+
+I have been doing this 17 years. Over that time I have watched businesses spend $10,000 a month on a digital marketing company that could not tell them their cost per lead, and I have watched others spend $3,000 and grow revenue five times over inside six months. The difference is not the budget. It is the company you hire and how well you vet them.
+
+This guide covers what a digital marketing company actually does, what their services cost in 2026, the fee models that work against you, when you should not hire one, and how to pick a partner that treats your money like it is their own.
+
+![Digital marketing team collaborating on strategy in a modern office](https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## What a Digital Marketing Company Actually Does
+
+Most people think a digital marketing company runs Facebook ads and writes blog posts. Some do. The ones worth paying for do a lot more than that.
+
+Strip away the industry jargon, and a good digital marketing company provides five core functions:
+
+* **Strategy and planning** — deciding which channels, audiences, and messages will actually move revenue before a single dollar is spent. A strategy is not a list of services. A strategy is a documented answer to the question "What are we doing, why, and how will we know it is working?"
+* **Channel execution** — running the campaigns, writing the content, building the landing pages, and managing the ad accounts day to day. This is where most companies fall down, because execution is the hard part.
+* **Measurement and reporting** — tracking what happened, explaining why, and recommending the next move. If the monthly report is a wall of vanity metrics with no actionable insight, the company is hiding.
+* **Optimisation and iteration** — taking what is working and doing more of it, taking what is not working and either fixing it or stopping. The best digital marketing companies kill their own ideas when the data says they are wrong.
+* **Technology and tooling** — managing the martech stack, from analytics and tracking to automation and CRM integration. This alone can swallow a month of a full-time employee's time.
+
+The services that sit inside those functions usually include SEO, PPC management, content marketing, social media management, email marketing and automation, web design and conversion rate optimisation, and sometimes digital PR and link building. A [digital marketing company](/marketing) that tries to sell you all of these on day one is usually selling you breadth instead of depth. Pick a company that starts with what you actually need.
+
+## What Digital Marketing Services Cost in 2026
+
+Pricing in this industry stays opaque on purpose. Agencies and companies want it that way, because a vague price is easier to raise later. Here is what I have seen hold up across hundreds of engagements.
+
+For a mid-sized business ($1M to $10M in revenue):
+
+* **SEO**: $2,500 to $5,000 per month. Anything under $2,000 is either a junior operator or a template-based service that will not move the needle.
+* **PPC management**: $1,000 to $2,500 per month as a flat fee. Never a percentage of your ad spend. We will get to why in a moment.
+* **Content marketing**: $2,000 to $6,000 per month depending on the volume of content and the depth of research behind it.
+* **Social media management**: $1,000 to $3,000 per month for organic. Paid social is usually managed under the PPC retainer.
+* **Full-service (SEO plus PPC plus content plus email)**: $5,000 to $12,000 per month.
+* **Enterprise-level (dedicated team, multi-channel, custom reporting)**: $15,000 and up per month.
+
+All of these are flat monthly retainers. Third-party tools should be passed through at cost, not marked up. [HubSpot's pricing guide](https://www.hubspot.com/products/marketing/pricing) is a useful benchmark for what the tools themselves cost, though the agency should be transparent about what they are spending on your behalf.
+
+If a digital marketing company quotes you $500 per month for "complete marketing services," here is what you are getting: AI-generated blog posts, no original research, no custom strategy, and likely no human checking the work before it lands. You get what you pay for, and $500 buys you very little that works.
+
+![Digital marketing analytics dashboard showing campaign performance metrics](https://images.pexels.com/photos/6696222/pexels-photo-6696222.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## The Fee Structure That Quietly Works Against You
+
+I have a strong opinion on this, backed by 17 years of watching the pattern repeat. **The percentage-of-ad-spend model pays your digital marketing company more when they spend more of your money.** That misalignment of incentives is the single most expensive mistake business owners make when hiring marketing help.
+
+Here is how it works. Say your digital marketing company charges 15 per cent of your Google Ads spend. At $5,000 a month, they earn $750. To earn more, they do not need better results. They need you to spend more. So when the quarterly review comes, the recommendation is almost always the same: "We are seeing great momentum — let us scale the budget." That advice grows their fee. It might not grow your revenue.
+
+A flat fee removes that misalignment. The company earns the same whether your budget is $5,000 or $15,000, so their only incentive is results. That is the model you want. Pay them to make the account work, not to make it bigger.
+
+The exception is genuinely large accounts where managing $200,000 of monthly spend requires real overhead. For anything under $20,000 a month, a flat fee is almost always the fairer deal. If a digital marketing company insists on a percentage for a small account, ask them to explain why. The honest ones will have an answer. The rest will use phrases like "aligned incentives," which is consulting-speak for "we make more when you spend more."
+
+## When You Should NOT Hire a Digital Marketing Company
+
+This section matters more than most of what I will say, because the best marketing decision you can make is sometimes to not hire at all. Here is when a digital marketing company is the wrong answer.
+
+* **Your website is not ready.** Every marketing dollar goes through your site. If the site loads in five seconds, looks outdated, and buries your phone number, you are paying for traffic that leaks. Fix the [website first](/web-design), then pay for visitors.
+* **Your margins cannot support the channel costs.** If you sell a $30 product once and a click costs $4 with a two per cent conversion rate, the maths does not work. No digital marketing company can fix margins that are too thin for paid acquisition.
+* **You want overnight results.**
+  They do not exist. Anyone promising a flood of leads in two weeks is selling excitement, not marketing. SEO takes three to six months to build real momentum. PPC can work faster, but it takes one to three months of testing and optimisation to become profitable. If you need a miracle next week, hire a prayer team, not a marketing company.
+* **Your internal situation is unstable.** Leadership changes, pending layoffs, or a product that is not finished. Marketing spend that comes and goes every two months burns budget and builds nothing. Wait until you are stable, then invest.
+* **You are better served by a specialist.** If you only need SEO, hire an SEO specialist. If you only need Google Ads, hire a PPC specialist. A full-service digital marketing company makes sense when you need channels working together. A good company will tell you when a specialist would serve you better.
+
+A trustworthy digital marketing company will also tell you these things. If the first call has no pushback and no hard questions about your readiness, that is not confidence. That is a sales script.
+
+![Business professional reviewing a digital marketing proposal and contract](https://images.pexels.com/photos/7845356/pexels-photo-7845356.jpeg?auto=compress&cs=tinysrgb&w=1200)
+
+## How to Choose a Digital Marketing Company That Delivers
+
+After nearly two decades in this industry, the warning signs have barely changed. Here is what to watch for before you sign anything.
+
+* **They cannot name a failed campaign.** Every company has work that did not land. The good ones talk about what they learned. The bad ones pretend every engagement was a home run.
+* **Their own marketing is weak.** Search for the terms they claim to rank for. If a digital marketing company cannot get found for its own service, ask how they plan to get you found for yours.
+* **They avoid talking about money.** A company that dodges the pricing conversation until the third meeting is building a narrative they know will be less appealing once you see the number. Good companies open with pricing or at least a range.
+* **The salesperson will not be your contact.** If the person who sold you hands you off to a junior operator after the contract is signed, that is bait-and-switch. Ask who touches your account day to day. If the answer is not the person in the room, keep looking.
+* **Their case studies have no numbers.** "We helped a client grow their online presence" means nothing. "We helped a law firm go from 12 leads a month to 47 at a cost per lead of $34" means something. Check our [portfolio](/portfolio) for examples with real, attributable data.
+* **They lock you into a contract with no exit.** Month-to-month or a short initial term is standard. A 12-month contract with no out clause is a red flag. Good companies keep clients through results, not paperwork.
+
+[Google's own Search Essentials](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) explicitly warns against practices like link buying and keyword stuffing. Any company that still uses these tactics will waste your money and risk your domain's standing.
+
+## The One Thing Most Digital Marketing Companies Will Not Tell You
+
+Here is the take that costs business owners the most money. It is simple but almost nobody says it out loud: **whoever owns your ad account owns your leverage.**
+
+Most digital marketing companies quietly create your Google Ads account under their own manager account. The day you decide to leave, you leave with nothing. The account, the conversion data, the audience lists, the optimisation history — all of it stays with them. You start from zero at the next company, which is exactly why they set it up that way.
+
+Demand ownership on day one. Your Google Ads account should be created under your own ID, and the company granted manager access. If they resist, that resistance is your answer. A good company will hand you the keys without being asked, because they keep clients by doing good work, not by holding data hostage. I have seen a business pay an extra six months of retainer just to avoid losing the account data they had built up. It is extortion wrapped in a terms-of-service document.
+
+The same applies to your analytics, your email platform, and your social media accounts. You own them. They are granted access, and that access can be revoked.
+
+## Frequently Asked Questions
+
+### What does a digital marketing company do?
+
+A digital marketing company helps businesses grow online through strategy, channel execution, measurement, and optimisation. Typically, they offer SEO, paid advertising, content marketing, social media management, email marketing, and web design. The good ones start with a strategy and only add channels as the existing ones prove profitable.
+
+### How much does a digital marketing company cost?
+
+For a mid-sized business ($1M to $10M revenue), expect $2,500 to $5,000 per month for SEO, $1,000 to $2,500 for PPC management, $2,000 to $6,000 for content marketing, or $5,000 to $12,000 for full-service work. Enterprise engagements start at $15,000 a month. Choose flat monthly retainers over a percentage of ad spend.
+
+### How do I choose a digital marketing company?
+
+Check their own search rankings first. Read their case studies for specific, attributable numbers. Ask to speak with a current client in your industry. Demand ownership of your ad accounts and data. Avoid companies that guarantee rankings, use vague deliverables, charge a percentage of ad spend, or cannot name a campaign that did not work.
+
+### What is the difference between a digital marketing company and an agency?
+
+In practice, the terms are used interchangeably. Some businesses prefer "company" to signal broader service offerings or product integration, while "agency" often implies a purely service-based relationship. The distinction matters far less than the company's track record, transparency, and fit for your specific needs.
+
+### What digital marketing services actually work?
+
+SEO delivers the highest long-term ROI of any channel because results compound. PPC works well for capturing high-intent traffic immediately. Email marketing generates roughly $36 for every $1 spent. Content marketing costs 62 per cent less than traditional marketing and generates about three times as many leads. Social media works best for B2C brands with visual products.
+
+### What red flags should I watch for when hiring?
+
+Guaranteed first-page rankings, percentage-of-ad-spend pricing on small accounts, refusal to give you account ownership, long-term contracts with no exit, vague case studies without numbers, and being sold by a senior person who hands you off to a junior after signing. Any of these is grounds to walk.
+
+### How long does it take to see results from a digital marketing company?
+
+SEO shows meaningful results in three to six months, with compounding gains over six to twelve months. PPC can generate traffic immediately but takes one to three months to optimise for profit. Content marketing compounds over six to twelve months. Anyone promising results in 30 days is either inexperienced or dishonest.
+
+### Can I do digital marketing myself instead of hiring a company?
+
+Yes, and for very small budgets, you probably should. A focused solo effort on one or two channels can work for simple offers. The case for hiring a company grows as your budget, the number of channels, and the cost of mistakes all rise. At that point, expert attention usually pays for itself.
+
+## The Sign-Off
+
+A good digital marketing company is like a good mechanic. You might not understand everything they are doing under the bonnet, but your engine runs better when they are done. A bad one is like a mechanic who charges you for a new gearbox when you needed blinker fluid and hopes you never check.
+
+The companies worth hiring charge flat fees, hand you the keys to your own data, and can point to a real number on your profit and loss statement that improved because of their work. The rest are just very good at spending money that is not theirs.
+
+If you want the straight talk about whether hiring a digital marketing company makes sense for your business — what to spend, what to expect, and whether you are even ready — [give us a call](/contact). No percentage fees, no long contracts, and absolutely no synergy.
+    `
+  },
+  {
     slug: 'ppc-agency',
     image: 'https://images.pexels.com/photos/6476258/pexels-photo-6476258.jpeg?auto=compress&cs=tinysrgb&w=1200',
     category: 'PPC',
