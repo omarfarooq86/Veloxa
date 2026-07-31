@@ -4,7 +4,8 @@
       "powershell",
       "Shell(npx tsc --noEmit 2>&1)",
       "Shell(git:*)",
-      "Shell(git commit -F - <<'EOF' design: deslop pass — remove AI slop, replace with authored design - Replace generic blue-purple palette with warm amber editorial palette (#d4782c) - Remove 50+ decorative hero particles, keep only essential ambient glow - Strip all backdrop-filter/blur from glass, navbar, and card components - Break center-stack layout with hierarchical services and industries grids - Replace stat monuments with contextual proof + client quote block - Remove accent rails from service cards and industry cards - Reduce pill badge icon toppers, use simpler text labels - Add design diagnostic reports (.commandcode/design/) Co-authored-by: CommandCodeBot <noreply@commandcode.ai> EOF)"
+      "Shell(git commit -F - <<'EOF' design: deslop pass — remove AI slop, replace with authored design - Replace generic blue-purple palette with warm amber editorial palette (#d4782c) - Remove 50+ decorative hero particles, keep only essential ambient glow - Strip all backdrop-filter/blur from glass, navbar, and card components - Break center-stack layout with hierarchical services and industries grids - Replace stat monuments with contextual proof + client quote block - Remove accent rails from service cards and industry cards - Reduce pill badge icon toppers, use simpler text labels - Add design diagnostic reports (.commandcode/design/) Co-authored-by: CommandCodeBot <noreply@commandcode.ai> EOF)",
+      "Shell(npx tsc --noEmit 2 >& 1)"
     ],
     "deny": [],
     "defaultMode": "default"

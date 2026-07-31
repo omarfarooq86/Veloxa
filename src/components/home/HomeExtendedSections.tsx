@@ -28,45 +28,7 @@ export const HomeExtendedSections: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ maxWidth: '1100px' }}>
-            {/* Lead industry — spans full width */}
-            {industryItems.length > 0 && (
-              <div
-                className="group animate-fade-up cursor-pointer overflow-hidden"
-                style={{
-                  gridColumn: '1 / -1',
-                  display: 'flex',
-                  borderRadius: 'var(--border-radius-lg)',
-                  background: 'var(--color-bg)',
-                  border: '1px solid var(--color-border)',
-                  transition: 'border-color 0.3s ease',
-                }}
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--color-primary)'; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border)'; }}
-              >
-                <div className="relative w-60 flex-shrink-0 overflow-hidden">
-                  <img
-                    src={industryItems[0].imageSrc}
-                    alt={industryItems[0].imageAlt}
-                    width={400}
-                    height={260}
-                    loading="lazy"
-                    decoding="async"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).onerror = null;
-                      (e.currentTarget as HTMLImageElement).src = fallbackImage;
-                    }}
-                    className="block w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'linear-gradient(to top, rgba(22,24,31,0.06), transparent)' }} />
-                </div>
-                <div className="flex items-center p-6" style={{ flex: 1 }}>
-                  <h3 className="text-xl font-bold">{industryItems[0].label}</h3>
-                </div>
-              </div>
-            )}
-
-            {/* Remaining industries */}
-            {industryItems.slice(1).map((item, idx) => (
+            {industryItems.map((item, idx) => (
               <div
                 key={item.label}
                 className={`group animate-fade-up delay-${(idx % 3) + 1} cursor-pointer overflow-hidden`}
