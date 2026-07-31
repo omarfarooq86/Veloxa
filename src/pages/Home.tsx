@@ -1,7 +1,6 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import Hero from '@/components/Hero';
 import ServiceCard from '@/components/ServiceCard';
-import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { Link } from 'react-router-dom';
 import { Search, Monitor, Palette, TrendingUp, ArrowRight } from 'lucide-react';
 

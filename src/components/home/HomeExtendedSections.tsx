@@ -3,7 +3,6 @@ import {
   clientLogos,
   industryItems,
   industriesIntro,
-  ourClientsIntro,
   testimonials,
 } from '@/data/homeMarketingContent';
 import { TestimonialSlider } from '@/components/home/TestimonialSlider';
