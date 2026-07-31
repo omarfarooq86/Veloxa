@@ -122,7 +122,7 @@ const BlogPost: React.FC = () => {
       {/* Hero Section */}
       <div className="relative w-full h-[50vh] min-h-[400px]">
         <img src={post.image} alt={post.title} className="w-full h-full object-cover" width="1200" height="630" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a1226] via-[#0a1226]/70 to-transparent z-10" />
+        <div className="absolute inset-0 z-10" style={{ background: 'linear-gradient(to top, #16181f, rgba(22,24,31,0.7), transparent)' }} />
 
         <div className="absolute inset-0 z-20 flex flex-col justify-end container pb-12">
           <nav className="flex items-center gap-2 text-sm text-white/60 mb-4">

@@ -33,10 +33,9 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-2.5">
             <div className="relative">
               <Zap className="text-primary size-7 group-hover:animate-pulse transition-all duration-300" />
-              <div className="absolute inset-0 bg-primary/20 blur-xl group-hover:bg-primary/30 transition-all duration-300" />
             </div>
             <span className="text-2xl md:text-3xl font-extrabold tracking-tight">
-              <span className="text-primary group-hover:text-primary/80 transition-colors duration-300">Veloxa</span>
+              <span className="text-primary group-hover:text-primary-dark transition-colors duration-300">Veloxa</span>
               <span className="text-secondary">.</span>
             </span>
           </div>

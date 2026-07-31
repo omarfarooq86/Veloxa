@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Veloxa - Checkup Report</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<style>
+		body { font-family: Inter, ui-sans-serif, system-ui, sans-serif; }
+		.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+		.report-section { border: 1px solid #222226; background: #0a0a0b; position: relative; }
+		.corner-box { position: absolute; width: 20px; height: 20px; border: 1px solid #222226; background: #000; }
+	</style>
+</head>
+<body class="bg-black text-[#fafafa]">
+	<main class="mx-auto w-full max-w-6xl px-5 py-8 md:px-10 md:py-12">
+		<header class="report-section mb-8 p-6 md:p-8">
+			<div class="corner-box left-0 top-0 -translate-x-1/2 -translate-y-1/2"></div>
+			<div class="corner-box right-0 top-0 translate-x-1/2 -translate-y-1/2"></div>
+			<div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+				<div>
+					<div class="mono mb-2 text-xs tracking-widest text-[#666]">// CHECKUP</div>
+					<h1 class="text-4xl font-bold tracking-tight md:text-6xl">Veloxa</h1>
+				</div>
+				<div class="mono text-left text-xs text-[#666] md:text-right">
+					<div>COMMANDCODE REPORT</div>
+					<div class="text-[#444]">2026-07-31</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="corner-box left-0 top-0 -translate-x-1/2 -translate-y-1/2"></div>
+			<div class="corner-box right-0 top-0 translate-x-1/2 -translate-y-1/2"></div>
+			<div class="grid gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+				<div>
+					<div class="mono mb-2 text-xs tracking-widest text-[#666]">// OVERALL</div>
+					<div class="text-6xl font-bold tracking-tight md:text-7xl text-[#fbbf24]">35</div>
+					<div class="mt-1 text-lg text-[#666]">/ 60</div>
+					<div class="mt-4 inline-flex border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-3 py-1 text-sm text-[#fbbf24]">NEEDS WORK</div>
+				</div>
+				<div>
+					<div class="mono mb-3 text-xs tracking-widest text-[#666]">// TL;DR</div>
+					<p class="text-sm leading-6 text-[#a0a0a0]">The surface is competent and consistent but generic. Readability is healthy and CSS architecture is well-organized, but intentionality, responsiveness, accessibility, and speed all need attention. No critical shipping blockers — but the design reads as template-derived.</p>
+					<p class="mt-4 text-sm leading-6 text-[#fbbf24]">Run /design deslop to remove generic tells, then /design interaction for accessibility improvements.</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// HEURISTIC SCORES</div>
+			<div class="overflow-x-auto">
+				<table class="w-full min-w-[720px] border-collapse text-sm">
+					<thead>
+						<tr class="border-b border-[#222226] text-left mono text-xs text-[#666]">
+							<th class="py-3 pr-4 font-normal">#</th>
+							<th class="py-3 pr-4 font-normal">VITAL</th>
+							<th class="py-3 pr-4 font-normal">SCORE</th>
+							<th class="py-3 pr-4 font-normal">STATUS</th>
+							<th class="py-3 font-normal">FINDING</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-b border-[#1a1a1e]"><td class="py-4 pr-4 text-[#555]">1</td><td class="py-4 pr-4 text-[#fafafa]">Intentionality</td><td class="py-4 pr-4 text-[#fbbf24]">5/10</td><td class="py-4 pr-4"><span class="inline-flex border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-2 py-0.5 text-xs text-[#fbbf24]">WATCH</span></td><td class="py-4 text-[#a0a0a0]">CSS is coherent but colors, layout, effects are the agency domain default</td></tr>
+						<tr class="border-b border-[#1a1a1e]"><td class="py-4 pr-4 text-[#555]">2</td><td class="py-4 pr-4 text-[#fafafa]">Readability</td><td class="py-4 pr-4 text-[#34d399]">10/10</td><td class="py-4 pr-4"><span class="inline-flex border border-[#34d399]/30 bg-[#34d399]/10 px-2 py-0.5 text-xs text-[#34d399]">HEALTHY</span></td><td class="py-4 text-[#a0a0a0]">Good contrast, proper heading hierarchy, clamp-based sizes, adequate line heights</td></tr>
+						<tr class="border-b border-[#1a1a1e]"><td class="py-4 pr-4 text-[#555]">3</td><td class="py-4 pr-4 text-[#fafafa]">Usability</td><td class="py-4 pr-4 text-[#fbbf24]">5/10</td><td class="py-4 pr-4"><span class="inline-flex border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-2 py-0.5 text-xs text-[#fbbf24]">WATCH</span></td><td class="py-4 text-[#a0a0a0]">Navigation works, CTAs visible; but heavy animation reliance and non-standard mobile menu</td></tr>
+						<tr class="border-b border-[#1a1a1e]"><td class="py-4 pr-4 text-[#555]">4</td><td class="py-4 pr-4 text-[#fafafa]">Responsiveness</td><td class="py-4 pr-4 text-[#fbbf24]">5/10</td><td class="py-4 pr-4"><span class="inline-flex border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-2 py-0.5 text-xs text-[#fbbf24]">WATCH</span></td><td class="py-4 text-[#a0a0a0]">Auto-fit grids work; but no iOS input zoom handling, no container queries, no safe-area</td></tr>
+						<tr class="border-b border-[#1a1a1e]"><td class="py-4 pr-4 text-[#555]">5</td><td class="py-4 pr-4 text-[#fafafa]">Speed</td><td class="py-4 pr-4 text-[#fbbf24]">5/10</td><td class="py-4 pr-4"><span class="inline-flex border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-2 py-0.5 text-xs text-[#fbbf24]">WATCH</span></td><td class="py-4 text-[#a0a0a0]">Two Google Fonts, 50+ animated hero elements; particle overhead concerning for low-end devices</td></tr>
+						<tr class="border-b border-[#1a1a1e]"><td class="py-4 pr-4 text-[#555]">6</td><td class="py-4 pr-4 text-[#fafafa]">Accessibility</td><td class="py-4 pr-4 text-[#fbbf24]">5/10</td><td class="py-4 pr-4"><span class="inline-flex border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-2 py-0.5 text-xs text-[#fbbf24]">WATCH</span></td><td class="py-4 text-[#a0a0a0]">prefers-reduced-motion respected; but no skip-nav, weak contrast spots, no accessible counter alt</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// COGNITIVE LOAD / RISK</div>
+			<div class="grid gap-6 md:grid-cols-2">
+				<div>
+					<div class="mb-3 text-xl font-semibold">NEEDS WORK</div>
+					<ul class="space-y-3 text-sm text-[#a0a0a0]">
+						<li><span class="mono mr-2 text-[#fbbf24]">WATCH</span>Intentionality weak — design reads as assembled from industry defaults</li>
+						<li><span class="mono mr-2 text-[#fbbf24]">WATCH</span>Responsiveness needs iOS input zoom and safe-area handling</li>
+						<li><span class="mono mr-2 text-[#fbbf24]">WATCH</span>Accessibility bare-minimum — no skip-nav, potential contrast issues</li>
+						<li><span class="mono mr-2 text-[#fbbf24]">WATCH</span>50+ animated hero elements strain low-end devices</li>
+						<li><span class="mono mr-2 text-[#34d399]">PASS</span>Readability healthy — type scale, contrast, line heights adequate</li>
+					</ul>
+				</div>
+				<div>
+					<div class="mono mb-3 text-xs tracking-widest text-[#666]">// NEXT MODES</div>
+					<div class="flex flex-wrap gap-2">
+						<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/design deslop</span>
+						<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/design recolor</span>
+						<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/design relayout</span>
+						<span class="border border-[#333] px-3 py-1 text-sm text-[#a0a0a0]">/design interaction</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// WHAT'S WORKING</div>
+			<div class="grid gap-4 md:grid-cols-3">
+				<article class="border border-[#1f1f24] p-4">
+					<h2 class="mb-2 text-sm font-semibold">CSS Architecture</h2>
+					<p class="text-sm leading-6 text-[#a0a0a0]">Well-organized custom properties with clear naming, consistent component classes, and composable utility patterns.</p>
+				</article>
+				<article class="border border-[#1f1f24] p-4">
+					<h2 class="mb-2 text-sm font-semibold">Typography Scale</h2>
+					<p class="text-sm leading-6 text-[#a0a0a0]">Clamp-based responsive headings, readable body measure, proper line heights. Content is comfortable to read.</p>
+				</article>
+				<article class="border border-[#1f1f24] p-4">
+					<h2 class="mb-2 text-sm font-semibold">Component Coherence</h2>
+					<p class="text-sm leading-6 text-[#a0a0a0]">Consistent naming (.card, .btn, .badge, .glass), shared hover behaviors, composable delay system.</p>
+				</article>
+			</div>
+		</section>
+
+		<section class="report-section mb-8 p-6 md:p-8">
+			<div class="mono mb-6 text-xs tracking-widest text-[#666]">// PRIORITY ISSUES</div>
+			<div class="space-y-5">
+				<article class="border border-[#fbbf24]/20 bg-[#0f0d0a] p-5">
+					<div class="mono mb-2 text-xs text-[#fbbf24]">P1</div>
+					<h2 class="mb-2 text-lg font-semibold">Intentionality Gap</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">The design reads as assembled from industry defaults: blue-purple primary, dark navy hero, glass effects, centered cards. Every choice could be swapped into any agency site.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: /design deslop + /design recolor to establish project-specific visual identity</div>
+				</article>
+				<article class="border border-[#fbbf24]/20 bg-[#0f0d0a] p-5">
+					<div class="mono mb-2 text-xs text-[#fbbf24]">P1</div>
+					<h2 class="mb-2 text-lg font-semibold">Animation Overhead</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">Hero contains 50+ animated elements (dots, orbs, rings, diamonds, shooting stars, twinkles, scroll indicator, grid). This causes jank and battery drain on low-end devices.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: /design deslop — strip decorative hero animations to essential elements only</div>
+				</article>
+				<article class="border border-[#1f1f24] p-5">
+					<div class="mono mb-2 text-xs text-[#a0a0a0]">P2</div>
+					<h2 class="mb-2 text-lg font-semibold">Mobile Navigation</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">clip-path circle transition for mobile menu is creative but non-standard. A standard slide or overlay would be more reliable across browsers.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: Replace with standard transform-based slide or overlay transition</div>
+				</article>
+				<article class="border border-[#1f1f24] p-5">
+					<div class="mono mb-2 text-xs text-[#a0a0a0]">P2</div>
+					<h2 class="mb-2 text-lg font-semibold">Accessibility Gaps</h2>
+					<p class="mb-4 text-sm leading-6 text-[#a0a0a0]">No skip-to-content link, no global focus ring system, animated counters lack text alternatives for screen readers.</p>
+					<div class="border-l border-[#fbbf24] pl-4 text-sm leading-6 text-[#fbbf24]">FIX: /design interaction — add skip-nav, visible focus rings, accessible counter alternatives</div>
+				</article>
+			</div>
+		</section>
+
+		<footer class="mono py-8 text-center text-xs tracking-widest text-[#444]">
+			Generated with CommandCode - 2026-07-31
+		</footer>
+	</main>
+</body>
+</html>

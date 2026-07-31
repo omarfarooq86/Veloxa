@@ -8,30 +8,78 @@ interface ServiceCardProps {
   description: string;
   link: string;
   delay?: number;
+  featured?: boolean;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, link, delay = 0 }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, link, delay = 0, featured = false }) => {
   return (
     <Link
       to={link}
-      className={`group relative card animate-fade-up delay-${delay} overflow-hidden cursor-pointer`}
-      style={{ height: '100%' }}
+      className={`group animate-fade-up delay-${delay} cursor-pointer`}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: featured ? '1.5rem' : '1.25rem',
+        padding: featured ? '2rem' : '1.5rem',
+        borderRadius: 'var(--border-radius-lg)',
+        background: 'var(--color-bg)',
+        border: '1px solid var(--color-border)',
+        transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+        ...(featured ? {
+          gridColumn: '1 / -1',
+          borderColor: 'rgba(212,120,44,0.25)',
+          background: 'linear-gradient(135deg, rgba(212,120,44,0.03), transparent)',
+        } : {}),
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = 'var(--color-primary)';
+        e.currentTarget.style.boxShadow = 'var(--shadow-card-hover)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = featured ? 'rgba(212,120,44,0.25)' : 'var(--border)';
+        e.currentTarget.style.boxShadow = '';
+      }}
     >
-      {/* Hover gradient accent */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-primary/5 to-transparent rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-      {/* Subtle top border accent */}
-      <div className="absolute top-0 left-8 right-8 h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-
-      <div className="card-icon relative z-10">
+      {/* Icon */}
+      <div
+        className="flex-shrink-0 rounded-xl flex items-center justify-center transition-all duration-300"
+        style={{
+          width: featured ? '56px' : '44px',
+          height: featured ? '56px' : '44px',
+          background: 'linear-gradient(135deg, rgba(212,120,44,0.08), rgba(212,120,44,0.03))',
+          color: 'var(--color-primary)',
+        }}
+      >
         {icon}
       </div>
-      <h3 className="text-xl font-bold mb-2 relative z-10 group-hover:text-primary transition-colors duration-300">{title}</h3>
-      <p className="text-muted mb-6 relative z-10" style={{ flexGrow: 1, lineHeight: 1.65 }}>{description}</p>
-      <div className="relative z-10 inline-flex items-center gap-2 text-primary font-semibold text-sm group/link">
-        Learn More
-        <ArrowRight size={15} className="group-hover/link:translate-x-1 transition-transform duration-300" />
+
+      {/* Text content */}
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <h3
+          className="font-bold mb-1 transition-colors duration-300"
+          style={{
+            fontSize: featured ? '1.35rem' : '1.1rem',
+            color: 'var(--color-text)',
+          }}
+        >
+          {title}
+        </h3>
+        <p className="text-muted" style={{ fontSize: '0.95rem', lineHeight: 1.5 }}>
+          {description}
+        </p>
+        {featured && (
+          <div className="inline-flex items-center gap-1.5 mt-2 font-semibold text-sm" style={{ color: 'var(--color-primary)' }}>
+            Learn More
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform duration-300" />
+          </div>
+        )}
       </div>
+
+      {!featured && (
+        <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: 'var(--color-primary)' }}>
+          <ArrowRight size={16} />
+        </div>
+      )}
     </Link>
   );
 };

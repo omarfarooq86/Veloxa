@@ -81,8 +81,8 @@ const Portfolio: React.FC = () => {
       </section>
 
       <section className="section cta-dark mx-6 my-8 mb-16 rounded-3xl relative overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#1e4aff]/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-[#059669]/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full blur-[100px] pointer-events-none" style={{ background: 'rgba(212,120,44,0.06)' }} />
+        <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full blur-[100px] pointer-events-none" style={{ background: 'rgba(61,122,108,0.05)' }} />
         <div className="container text-center relative z-10">
           <div className="inline-flex items-center gap-2 badge bg-white/10 text-white border-white/10 mb-6">
             <span>Partner With Us</span>

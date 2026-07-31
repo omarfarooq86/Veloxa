@@ -106,7 +106,8 @@ const ChatWidget: React.FC = () => {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? 'Close chat' : 'Open chat'}
-        className="fixed bottom-5 right-5 z-[1000] flex h-14 w-14 items-center justify-center rounded-full bg-[#1e4aff] text-white shadow-[0_8px_24px_rgba(47,107,255,0.4)] transition-transform duration-200 hover:scale-105 active:scale-95"
+        className="fixed bottom-5 right-5 z-[1000] flex h-14 w-14 items-center justify-center rounded-full text-white transition-transform duration-200 hover:scale-105 active:scale-95"
+        style={{ background: 'var(--color-primary)', boxShadow: '0 8px 24px rgba(212,120,44,0.35)' }}
       >
         {open ? <X size={26} /> : <MessageCircle size={26} />}
       </button>
@@ -121,9 +122,9 @@ const ChatWidget: React.FC = () => {
         aria-label="Veloxa chat assistant"
       >
         {/* Header */}
-        <div className="flex items-center justify-between gap-3 bg-gradient-to-br from-[#0a1226] to-[#11203f] px-4 py-3 text-white">
+        <div className="flex items-center justify-between gap-3 px-4 py-3 text-white" style={{ background: 'linear-gradient(135deg, #1a1c25, #16181f)' }}>
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#1e4aff]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full" style={{ background: 'var(--color-primary)' }}>
               <Bot size={20} />
             </div>
             <div>
@@ -160,9 +161,10 @@ const ChatWidget: React.FC = () => {
               <div
                 className={`max-w-[80%] whitespace-pre-wrap rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
                   m.role === 'user'
-                    ? 'rounded-br-sm bg-[#1e4aff] text-white'
+                    ? 'rounded-br-sm text-white'
                     : 'rounded-bl-sm bg-white text-[#0f1b33] ring-1 ring-black/5'
                 }`}
+                style={m.role === 'user' ? { background: 'var(--color-primary)' } : undefined}
               >
                 {m.content}
               </div>
@@ -186,14 +188,15 @@ const ChatWidget: React.FC = () => {
                 <button
                   key={s}
                   onClick={() => send(s)}
-                  className="rounded-full border border-[#1e4aff]/30 bg-white px-3 py-1.5 text-xs text-[#1e4aff] transition-colors hover:bg-[#1e4aff] hover:text-white"
+                  className="rounded-full border bg-white px-3 py-1.5 text-xs transition-colors"
+                  style={{ borderColor: 'rgba(212,120,44,0.3)', color: 'var(--color-primary)' }}
                 >
                   {s}
                 </button>
               ))}
               <button
                 onClick={() => setView('lead')}
-                className="rounded-full border border-[#059669]/40 bg-white px-3 py-1.5 text-xs text-[#059669] transition-colors hover:bg-[#059669] hover:text-white"
+                style={{ borderColor: 'rgba(61,122,108,0.4)', color: 'var(--color-accent)' }} className="rounded-full border bg-white px-3 py-1.5 text-xs transition-colors"
               >
                 Talk to the team
               </button>
@@ -207,12 +210,13 @@ const ChatWidget: React.FC = () => {
           <div className="flex-1 overflow-y-auto bg-[#f3f6fd] p-4">
             {leadStatus === 'success' ? (
               <div className="flex h-full flex-col items-center justify-center text-center">
-                <CheckCircle2 size={44} className="mb-3 text-[#059669]" />
+                <CheckCircle2 size={44} className="mb-3" style={{ color: 'var(--color-accent)' }} />
                 <p className="mb-1 font-semibold text-[#0f1b33]">Thanks, {lead.name || 'there'}!</p>
                 <p className="text-sm text-[#5a6b85]">We've got your details and will reply within 24 hours on business days.</p>
                 <button
                   onClick={() => setView('chat')}
-                  className="mt-4 rounded-full bg-[#1e4aff] px-4 py-2 text-sm text-white"
+                  className="mt-4 rounded-full px-4 py-2 text-sm text-white"
+                  style={{ background: 'var(--color-primary)' }}
                 >
                   Back to chat
                 </button>
@@ -228,7 +232,10 @@ const ChatWidget: React.FC = () => {
                   value={lead.name}
                   onChange={(e) => setLead((p) => ({ ...p, name: e.target.value }))}
                   placeholder="Your name"
-                  className="w-full rounded-lg border border-[rgba(15,27,51,0.14)] bg-white px-3 py-2.5 text-sm text-[#0f1b33] outline-none focus:border-[#1e4aff]"
+                  className="w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-[#0f1b33] outline-none"
+                  style={{ borderColor: 'rgba(15,27,51,0.14)', '--focus-border': 'var(--color-primary)' } as React.CSSProperties}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--color-primary)'; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(15,27,51,0.14)'; }}
                 />
                 <input
                   type="email"
@@ -236,22 +243,29 @@ const ChatWidget: React.FC = () => {
                   value={lead.email}
                   onChange={(e) => setLead((p) => ({ ...p, email: e.target.value }))}
                   placeholder="Email address"
-                  className="w-full rounded-lg border border-[rgba(15,27,51,0.14)] bg-white px-3 py-2.5 text-sm text-[#0f1b33] outline-none focus:border-[#1e4aff]"
+                  className="w-full rounded-lg border bg-white px-3 py-2.5 text-sm text-[#0f1b33] outline-none"
+                  style={{ borderColor: 'rgba(15,27,51,0.14)', '--focus-border': 'var(--color-primary)' } as React.CSSProperties}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--color-primary)'; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(15,27,51,0.14)'; }}
                 />
                 <textarea
                   rows={3}
                   value={lead.message}
                   onChange={(e) => setLead((p) => ({ ...p, message: e.target.value }))}
                   placeholder="How can we help? (optional)"
-                  className="w-full resize-none rounded-lg border border-[rgba(15,27,51,0.14)] bg-white px-3 py-2.5 text-sm text-[#0f1b33] outline-none focus:border-[#1e4aff]"
+                  className="w-full resize-none rounded-lg border bg-white px-3 py-2.5 text-sm text-[#0f1b33] outline-none"
+                  style={{ borderColor: 'rgba(15,27,51,0.14)' }}
+                  onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--color-primary)'; }}
+                  onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(15,27,51,0.14)'; }}
                 />
                 {leadStatus === 'error' && (
-                  <p className="text-sm text-[#f43f5e]">Something went wrong. Please try again or use the Contact page.</p>
+                  <p className="text-sm" style={{ color: 'var(--color-accent)' }}>Something went wrong. Please try again or use the Contact page.</p>
                 )}
                 <button
                   type="submit"
                   disabled={leadStatus === 'sending' || !lead.name.trim() || !lead.email.trim()}
-                  className="rounded-lg bg-[#1e4aff] px-4 py-2.5 text-sm font-semibold text-white transition-opacity disabled:opacity-40"
+                  className="rounded-lg px-4 py-2.5 text-sm font-semibold text-white transition-opacity disabled:opacity-40"
+                  style={{ background: 'var(--color-primary)' }}
                 >
                   {leadStatus === 'sending' ? 'Sending...' : 'Send my details'}
                 </button>
@@ -268,13 +282,17 @@ const ChatWidget: React.FC = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask about our services..."
-            className="flex-1 rounded-full border border-[rgba(15,27,51,0.14)] bg-[#f3f6fd] px-4 py-2.5 text-sm text-[#0f1b33] outline-none focus:border-[#1e4aff]"
+            className="flex-1 rounded-full border bg-[#f3f6fd] px-4 py-2.5 text-sm text-[#0f1b33] outline-none"
+            style={{ borderColor: 'rgba(15,27,51,0.14)' }}
+            onFocus={(e) => { e.currentTarget.style.borderColor = 'var(--color-primary)'; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(15,27,51,0.14)'; }}
           />
           <button
             type="submit"
             disabled={loading || !input.trim()}
             aria-label="Send message"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1e4aff] text-white transition-opacity disabled:opacity-40"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white transition-opacity disabled:opacity-40"
+            style={{ background: 'var(--color-primary)' }}
           >
             <Send size={18} />
           </button>
