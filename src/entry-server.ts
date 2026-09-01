@@ -2,7 +2,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
-import { AppShell } from './App.tsx';
+import { AppShell } from './App';
 
 /**
  * Render the React app to a string for a given URL.

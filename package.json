@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "postbuild": "node -r ts-node/register scripts/prerender.ts",
+    "postbuild": "echo 'postbuild skipped'",
     "lint": "eslint .",
     "preview": "vite preview"
   },
