@@ -3,6 +3,7 @@ import PageHeader from '@/components/PageHeader';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { portfolioProjects } from '@/data/portfolioProjects';
+import { MetaRobots } from '@/components/MetaRobots';
 
 const Portfolio: React.FC = () => {
   useEffect(() => {
@@ -18,10 +19,12 @@ const Portfolio: React.FC = () => {
     const updateOG = (p: string, c: string) => {
       const og = document.querySelector(`meta[property="${p}"]`) || document.querySelector(`meta[name="${p}"]`);
       if (og) og.setAttribute('content', c);
-      else { const m = document.createElement('meta'); m.setAttribute('property', p); m.content = c; document.head.appendChild(m); }
+      else { const meta = document.createElement('meta'); meta.setAttribute('property', p); meta.content = c; document.head.appendChild(meta); }
     };
     updateOG('og:title', 'Our Portfolio | Veloxa');
-    updateOG('og:description', description); updateOG('og:url', canonicalUrl); updateOG('og:type', 'website');
+    updateOG('og:description', description);
+    updateOG('og:url', canonicalUrl);
+    updateOG('og:type', 'website');
     const updateTwitter = (n: string, c: string) => {
       const t = document.querySelector(`meta[name="${n}"]`);
       if (t) t.setAttribute('content', c);
@@ -44,10 +47,17 @@ const Portfolio: React.FC = () => {
 
   return (
     <div>
+      <MetaRobots />
       <PageHeader
         title="Our Work"
-        description="Discover how we've helped forward-thinking brands transform their digital presence and scale their revenue."
+        description="Discover how we've helped forward‑thinking brands transform their digital presence and scale their revenue."
       />
+      {/* Intro paragraph to address thin‑content */}
+      <section className="section container mt-8 mb-12">
+        <p className="text-lg text-muted max-w-4xl mx-auto text-pretty">
+          Our portfolio showcases a curated selection of strategic digital campaigns, SEO initiatives, and design projects that have driven measurable growth for clients across diverse industries.
+        </p>
+      </section>
 
       <section className="section container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

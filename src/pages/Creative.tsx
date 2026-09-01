@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
 import { Palette, PenTool, Image as ImageIcon, Video, CheckCircle2, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
+import { MetaRobots } from '@/components/MetaRobots';
 
 const creativeServices = [
   {
@@ -63,6 +64,7 @@ const Creative: React.FC = () => {
 
   return (
     <div>
+      <MetaRobots />
       <nav className="container pt-24 pb-4 flex items-center gap-2 text-sm text-muted">
         <Link to="/" className="hover:text-primary transition-colors">Home</Link>
         <ChevronRight size={14} />

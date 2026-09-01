@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, ExternalLink, ArrowRight } from 'lucide-react';
 import { portfolioProjects } from '@/data/portfolioProjects';
 
+import { MetaRobots } from '@/components/MetaRobots';
+
 const CaseStudy: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
 
@@ -29,7 +31,7 @@ const CaseStudy: React.FC = () => {
   }
 
   return (
-    <div className="pt-24 pb-16">
+    <div className="pt-24 pb-16"><MetaRobots />
       {/* Hero Section */}
       <div className="container mb-16">
         <Link to="/portfolio" className="inline-flex items-center gap-2 text-muted hover:text-primary transition-colors mb-12 font-medium cursor-target group">
@@ -166,7 +168,17 @@ const CaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* Other Projects */}
+      {/* Key Takeaways */}
+          <section className="section container mt-12">
+            <h2 className="text-3xl font-bold mb-4 gradient-text-alt">Key Takeaways</h2>
+            <ul className="list-disc pl-5 space-y-2 text-muted">
+              <li>Clear ROI metrics were defined early, driving measurable results.</li>
+              <li>Strategic design and development aligned with business goals.</li>
+              <li>Data‑driven optimisation ensured sustained growth.</li>
+            </ul>
+          </section>
+
+          {/* Other Projects */}
       <div className="container mt-24 pt-16 border-t border-[rgba(15,27,51,0.08)]">
         <div className="inline-flex items-center gap-2 badge badge-surface mb-6">
           <span>More Success Stories</span>

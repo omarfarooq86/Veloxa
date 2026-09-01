@@ -2,27 +2,20 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
 import { Target, Search, Megaphone, Mail, CheckCircle2, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
+import { MetaRobots } from '@/components/MetaRobots';
 
 const marketingServices = [
   {
-    icon: <Search size={26} />,
-    title: 'PPC & Search Ads',
-    description: 'High-ROI campaigns across Google, Bing, and YouTube that capture high-intent users actively searching for your solutions.'
+    icon: <Search size={26} />, title: 'PPC & Search Ads', description: 'High-ROI campaigns across Google, Bing, and YouTube that capture high-intent users actively searching for your solutions.'
   },
   {
-    icon: <Megaphone size={26} />,
-    title: 'Paid Social Media',
-    description: 'Hyper-targeted ads on Facebook, Instagram, LinkedIn, and TikTok designed to build brand awareness and drive direct conversions.'
+    icon: <Megaphone size={26} />, title: 'Paid Social Media', description: 'Hyper-targeted ads on Facebook, Instagram, LinkedIn, and TikTok designed to build brand awareness and drive direct conversions.'
   },
   {
-    icon: <Target size={26} />,
-    title: 'Content Marketing',
-    description: 'Strategic content creation and distribution that positions your brand as an authority and nurtures prospects through the funnel.'
+    icon: <Target size={26} />, title: 'Content Marketing', description: 'Strategic content creation and distribution that positions your brand as an authority and nurtures prospects through the funnel.'
   },
   {
-    icon: <Mail size={26} />,
-    title: 'Email & Lifecycle',
-    description: 'Automated email sequences and newsletter campaigns that increase LTV, reduce churn, and turn one-time buyers into loyal advocates.'
+    icon: <Mail size={26} />, title: 'Email & Lifecycle', description: 'Automated email sequences and newsletter campaigns that increase LTV, reduce churn, and turn one-time buyers into loyal advocates.'
   }
 ];
 
@@ -63,6 +56,7 @@ const Marketing: React.FC = () => {
 
   return (
     <div>
+      <MetaRobots />
       <nav className="container pt-24 pb-4 flex items-center gap-2 text-sm text-muted">
         <Link to="/" className="hover:text-primary transition-colors">Home</Link>
         <ChevronRight size={14} />
@@ -74,28 +68,29 @@ const Marketing: React.FC = () => {
         description="Omnichannel marketing campaigns that generate high-quality leads and explosive growth."
       />
 
-      <section className="section container text-center">
-        <div className="glass-strong max-w-4xl mx-auto px-8 py-16 rounded-2xl">
-          <div className="inline-flex items-center gap-2 badge badge-primary mb-4">
-            <Sparkles size={12} />
-            <span>Focus</span>
-          </div>
-          <h2 className="mb-4">Stop Wasting Ad Spend. <br/><span className="gradient-text">Start Scaling.</span></h2>
-          <p className="text-muted text-lg leading-relaxed max-w-3xl mx-auto text-pretty">
-            We don't believe in vanity metrics like clicks and impressions. Our marketing strategies are laser-focused on one thing: generating a measurable return on investment (ROI) that grows your bottom line.
-          </p>
-        </div>
+      {/* Intro paragraph for thin‑content fix */}
+      <section className="section container mt-8 mb-12">
+        <p className="text-lg text-muted max-w-4xl mx-auto text-pretty">
+          Our data‑driven digital marketing process starts with deep audience research, followed by rigorous A/B testing, transparent reporting, and continuous optimization to ensure sustainable ROI for Lahore‑based businesses.
+        </p>
+      </section>
+
+      {/* Our Process paragraph */}
+      <section className="section container mt-8 mb-12">
+        <p className="text-lg text-muted max-w-4xl mx-auto text-pretty">
+          Our proven methodology begins with comprehensive market and audience analysis to pinpoint high‑value opportunities. We then craft tailored multi‑channel strategies, execute precision‑targeted campaigns, and continuously test and refine based on real‑time data. Transparent reporting keeps stakeholders informed, while ongoing optimization ensures every dollar drives measurable growth and a strong return on investment.
+        </p>
       </section>
 
       <section className="section bg-surface">
         <div className="container">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 badge badge-surface mb-4">
-              <span>Services</span>
+              <span>What We Do</span>
             </div>
             <h2 className="animate-fade-up">Our <span className="gradient-text-alt">Growth Engines</span></h2>
             <p className="text-muted animate-fade-up delay-1 max-w-2xl mx-auto text-lg text-pretty">
-              We leverage data-driven strategies across multiple channels to ensure your message reaches the right audience at the perfect time.
+              We leverage data‑driven strategies across multiple channels to ensure your message reaches the right audience at the perfect time.
             </p>
           </div>
 
@@ -115,7 +110,7 @@ const Marketing: React.FC = () => {
         <div className="grid grid-2 items-center gap-16">
           <div className="animate-fade-up">
             <img
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
               alt="Marketing Data Analysis"
               className="w-full rounded-2xl shadow-card"
               loading="lazy"

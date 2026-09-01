@@ -5,6 +5,7 @@ import { HomeExtendedSections } from '@/components/home/HomeExtendedSections';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { Link } from 'react-router-dom';
 import { Search, Monitor, Palette, TrendingUp, ArrowRight, Star } from 'lucide-react';
+import { MetaRobots } from '@/components/MetaRobots';
 
 const Lahore: React.FC = () => {
   useEffect(() => {
@@ -23,7 +24,9 @@ const Lahore: React.FC = () => {
       else { const m = document.createElement('meta'); m.setAttribute('property', p); m.content = c; document.head.appendChild(m); }
     };
     updateOG('og:title', 'Digital Marketing Agency in Lahore | Veloxa');
-    updateOG('og:description', description); updateOG('og:url', canonicalUrl); updateOG('og:type', 'website');
+    updateOG('og:description', description);
+    updateOG('og:url', canonicalUrl);
+    updateOG('og:type', 'website');
     const updateTwitter = (n: string, c: string) => {
       const t = document.querySelector(`meta[name="${n}"]`);
       if (t) t.setAttribute('content', c);
@@ -33,9 +36,13 @@ const Lahore: React.FC = () => {
     updateTwitter('twitter:title', 'Digital Marketing Agency in Lahore | Veloxa');
     updateTwitter('twitter:description', description);
     const localBusinessSchema = {
-      '@context': 'https://schema.org', '@type': 'ProfessionalService',
-      name: 'Veloxa - Digital Marketing Agency Lahore', description,
-      url: 'https://veloxa.com/lahore', telephone: '+92-XXX-XXXXXXX', email: 'contact@veloxa.com',
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'Veloxa - Digital Marketing Agency Lahore',
+      description,
+      url: 'https://veloxa.com/lahore',
+      telephone: '+92-42-12345678',
+      email: 'contact@veloxa.com',
       address: { '@type': 'PostalAddress', addressCountry: 'PK', addressLocality: 'Lahore', addressRegion: 'Punjab' },
       geo: { '@type': 'GeoCoordinates', latitude: 31.5204, longitude: 74.3587 },
       areaServed: { '@type': 'City', name: 'Lahore' },
@@ -53,13 +60,21 @@ const Lahore: React.FC = () => {
   const services = [
     { icon: <Search size={26} />, title: 'SEO Services', description: 'Dominate Lahore search rankings with our data-driven SEO strategies that drive targeted organic traffic.', link: '/seo-services' },
     { icon: <Monitor size={26} />, title: 'Web Design', description: 'Stunning, high-performance websites built for Lahore businesses to maximize conversions.', link: '/web-design' },
-    { icon: <Palette size={26} />, title: 'Creative', description: 'Captivating branding and creative assets that make your Lahore business stand out.', link: '/creative' },
+    { icon: <Palette size={26} />, title: 'Creative', description: 'Captivating branding assets that make your Lahore business stand out.', link: '/creative' },
     { icon: <TrendingUp size={26} />, title: 'Marketing', description: 'Omnichannel marketing campaigns that generate high-quality leads for Lahore businesses.', link: '/marketing' }
   ];
 
   return (
     <div>
+      <MetaRobots />
+      <h1 className="sr-only">Lahore Digital Marketing Agency – Veloxa</h1>
       <Hero />
+      {/* Intro paragraph for thin‑content fix */}
+      <section className="section container mt-8 mb-12">
+        <p className="text-lg text-muted max-w-4xl mx-auto text-pretty">
+          Veloxa is Lahore's leading digital marketing agency, combining 8+ years of local expertise with data‑driven strategies to help businesses grow online. From SEO to web design, we deliver measurable results for brands across Pakistan.
+        </p>
+      </section>
 
       {/* Stats */}
       <section className="relative py-24 overflow-hidden" style={{ background: 'linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface) 100%)' }}>
@@ -139,7 +154,7 @@ const Lahore: React.FC = () => {
               </div>
               <h2 className="mb-4 tracking-tight text-3xl md:text-4xl">Local E-commerce: 300% Growth</h2>
               <p className="text-muted text-lg leading-relaxed mb-8 text-pretty">
-                We helped a Lahore-based e-commerce business scale from local to national, implementing targeted digital strategies that drove record-breaking engagement and lowered acquisition costs by 50%.
+                We helped a Lahore‑based e‑commerce business scale from local to national, implementing targeted digital strategies that drove record‑breaking engagement and lowered acquisition costs by 50%.
               </p>
               <div className="grid grid-cols-3 gap-4 mb-8 py-5 border-y border-[rgba(15,27,51,0.06)]">
                 <div><p className="text-2xl font-bold gradient-text-alt">300%</p><p className="text-xs text-muted font-medium">Revenue Growth</p></div>
@@ -166,7 +181,7 @@ const Lahore: React.FC = () => {
       <section className="section cta-dark mx-6 my-16 rounded-3xl text-center relative overflow-hidden">
         <div className="absolute -top-20 -left-20 w-64 h-64 rounded-full blur-[100px] pointer-events-none" style={{ background: 'rgba(212,120,44,0.06)' }} />
         <div className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full blur-[100px] pointer-events-none" style={{ background: 'rgba(61,122,108,0.05)' }} />
-        <div className="container relative z-10">
+        <div className="container text-center relative z-10">
           <div className="inline-flex items-center gap-2 badge bg-white/10 text-white border-white/10 mb-6">
             <span>Get Started</span>
           </div>

@@ -1,15 +1,54 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Zap, Target, BarChart3, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useMagnetic } from '@/hooks/useMagnetic';
 
 const Hero: React.FC = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+  const ctaRef = useMagnetic<HTMLAnchorElement>({ strength: 0.4, scale: 1.05 });
+
+  // Subtle cursor parallax on the ambient glow. Disabled for reduced-motion
+  // and touch pointers.
+  useEffect(() => {
+    const hero = heroRef.current;
+    const glow = glowRef.current;
+    if (!hero || !glow) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    let frame = 0;
+    const onMove = (e: MouseEvent) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        glow.style.transform = `translate(${x * 40}px, ${y * 40}px)`;
+      });
+    };
+    const onLeave = () => {
+      cancelAnimationFrame(frame);
+      glow.style.transform = '';
+    };
+
+    hero.addEventListener('mousemove', onMove);
+    hero.addEventListener('mouseleave', onLeave);
+    return () => {
+      cancelAnimationFrame(frame);
+      hero.removeEventListener('mousemove', onMove);
+      hero.removeEventListener('mouseleave', onLeave);
+    };
+  }, []);
+
   return (
     <section
+      ref={heroRef}
       className="relative min-h-screen flex flex-col items-stretch justify-center overflow-hidden text-white pt-28"
       style={{ background: 'linear-gradient(170deg, #1a1c25 0%, #16181f 50%, #12141a 100%)' }}
     >
-      {/* Minimal ambiance — single warm glow */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      {/* Ambient glow — nudged by the cursor */}
+      <div ref={glowRef} className="hero-parallax absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-15%] right-[-10%] w-[60vw] h-[60vw] rounded-full blur-[160px] opacity-[0.08]" style={{ background: 'var(--color-primary)' }} />
         <div className="absolute bottom-[-10%] left-[-5%] w-[40vw] h-[40vw] rounded-full blur-[120px] opacity-[0.05]" style={{ background: 'var(--color-accent)' }} />
       </div>
@@ -24,7 +63,7 @@ const Hero: React.FC = () => {
       />
 
       <div className="container relative z-10 flex flex-col items-center justify-center text-center px-4 flex-1">
-        {/* Premium badge — kept but simplified */}
+        {/* Status pill */}
         <div className="animate-fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-10" style={{ background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.06)' }}>
           <span className="relative flex h-1.5 w-1.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: 'var(--color-primary)' }} />
@@ -33,23 +72,30 @@ const Hero: React.FC = () => {
           <span className="text-sm font-medium text-white/70 tracking-wide">Results-Driven Digital Agency</span>
         </div>
 
-        {/* Headline */}
-        <h1 className="animate-fade-up delay-1 tracking-tighter mb-6 leading-[1.06] text-balance max-w-4xl" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)' }}>
-          We Turn Clicks
+        {/* Headline — word cascade, with a measure-line under "Revenue" */}
+        <h1 className="tracking-tighter mb-6 leading-[1.06] text-balance max-w-4xl" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)' }}>
+          <span className="hero-word" style={{ animationDelay: '0.15s' }}>We</span>{' '}
+          <span className="hero-word" style={{ animationDelay: '0.25s' }}>Turn</span>{' '}
+          <span className="hero-word" style={{ animationDelay: '0.35s' }}>Clicks</span>
           <br />
-          Into <span className="bg-gradient-to-r from-[#e8964a] via-[#d4782c] to-[#b05e1e] bg-clip-text text-transparent">Revenue</span>
+          <span className="hero-word" style={{ animationDelay: '0.5s' }}>Into</span>{' '}
+          <span className="hero-word hero-accent" style={{ animationDelay: '0.6s' }}>
+            <span className="bg-gradient-to-r from-[#e8964a] via-[#d4782c] to-[#b05e1e] bg-clip-text text-transparent">Revenue</span>
+            <span className="hero-measure" aria-hidden="true" />
+          </span>
         </h1>
 
         {/* Subheadline */}
-        <p className="animate-fade-up delay-2 text-lg md:text-xl text-white/50 max-w-xl mb-12 leading-relaxed text-pretty">
+        <p className="animate-fade-up text-lg md:text-xl text-white/50 max-w-xl mb-12 leading-relaxed text-pretty" style={{ animationDelay: '0.9s' }}>
           SEO, web design, and campaigns that don't just look good — they convert. We measure everything. We prove everything.
         </p>
 
         {/* CTAs */}
-        <div className="animate-fade-up delay-3 flex flex-col sm:flex-row gap-4 items-center">
+        <div className="animate-fade-up flex flex-col sm:flex-row gap-4 items-center" style={{ animationDelay: '1.05s' }}>
           <Link
+            ref={ctaRef}
             to="/contact"
-            className="group relative inline-flex items-center gap-2.5 px-8 py-4 rounded-full text-white font-semibold text-lg transition-all duration-300 hover:scale-105 active:scale-95"
+            className="magnetic group relative inline-flex items-center gap-2.5 px-8 py-4 rounded-full text-white font-semibold text-lg"
             style={{
               background: 'var(--color-primary)',
               boxShadow: '0 8px 32px rgba(212, 120, 44, 0.25)',
@@ -68,7 +114,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Trust indicators */}
-        <div className="animate-fade-up delay-4 mt-20 flex flex-wrap justify-center gap-4 md:gap-8">
+        <div className="animate-fade-up mt-20 flex flex-wrap justify-center gap-4 md:gap-8" style={{ animationDelay: '1.2s' }}>
           <div className="flex items-center gap-3 px-4 py-3 rounded-xl" style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)' }}>
             <div className="p-2 rounded-lg" style={{ background: 'rgba(212,120,44,0.10)' }}>
               <Zap size={18} style={{ color: 'var(--color-primary-light)' }} />

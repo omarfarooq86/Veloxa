@@ -28,14 +28,18 @@ const ScrollToTop = () => {
   return null;
 };
 
-const App: React.FC = () => {
+export const AppShell: React.FC = () => {
+  const { pathname } = useLocation();
+
   return (
-    <Router>
+    <div className="app-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <ScrollToTop />
       <Analytics />
-      <div className="app-container" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Navbar />
-        <main style={{ flexGrow: 1 }}>
+      <Navbar />
+      <main style={{ flexGrow: 1 }}>
+        {/* Keyed by path so each navigation plays an entrance. Navbar/ChatWidget
+            stay outside this transformed wrapper to preserve fixed positioning. */}
+        <div key={pathname} className="route-transition">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/lahore" element={<Lahore />} />
@@ -50,10 +54,18 @@ const App: React.FC = () => {
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </main>
-        <Footer />
-        <ChatWidget />
-      </div>
+        </div>
+      </main>
+      <Footer />
+      <ChatWidget />
+    </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Router>
+      <AppShell />
     </Router>
   );
 };

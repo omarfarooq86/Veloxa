@@ -3,46 +3,47 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
 interface ServiceCardProps {
+  delay?: number;
   icon: React.ReactNode;
   title: string;
   description: string;
   link: string;
-  delay?: number;
   featured?: boolean;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, link, delay = 0, featured = false }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, link, featured = false, delay }) => {
   return (
     <Link
       to={link}
-      className={`group animate-fade-up delay-${delay} cursor-pointer`}
+      className="group cursor-pointer"
       style={{
         display: 'flex',
         alignItems: 'center',
         gap: featured ? '1.5rem' : '1.25rem',
         padding: featured ? '2rem' : '1.5rem',
         borderRadius: 'var(--border-radius-lg)',
-        background: 'var(--color-bg)',
-        border: '1px solid var(--color-border)',
-        transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
-        ...(featured ? {
-          gridColumn: '1 / -1',
-          borderColor: 'rgba(212,120,44,0.25)',
-          background: 'linear-gradient(135deg, rgba(212,120,44,0.03), transparent)',
-        } : {}),
+        background: featured
+          ? 'linear-gradient(135deg, rgba(212,120,44,0.03), transparent)'
+          : 'var(--color-bg)',
+        border: `1px solid ${featured ? 'rgba(212,120,44,0.25)' : 'var(--color-border)'}`,
+        transition: 'transform 0.35s var(--ease-out-expo), border-color 0.3s ease, box-shadow 0.3s ease',
+    ...(delay !== undefined ? { transitionDelay: `${delay}ms` } : {}),
+        ...(featured ? { gridColumn: '1 / -1' } : {}),
       }}
       onMouseEnter={(e) => {
         e.currentTarget.style.borderColor = 'var(--color-primary)';
         e.currentTarget.style.boxShadow = 'var(--shadow-card-hover)';
+        e.currentTarget.style.transform = 'translateY(-4px)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = featured ? 'rgba(212,120,44,0.25)' : 'var(--border)';
+        e.currentTarget.style.borderColor = featured ? 'rgba(212,120,44,0.25)' : 'var(--color-border)';
         e.currentTarget.style.boxShadow = '';
+        e.currentTarget.style.transform = 'translateY(0)';
       }}
     >
       {/* Icon */}
       <div
-        className="flex-shrink-0 rounded-xl flex items-center justify-center transition-all duration-300"
+        className="flex-shrink-0 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
         style={{
           width: featured ? '56px' : '44px',
           height: featured ? '56px' : '44px',
@@ -76,7 +77,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, lin
       </div>
 
       {!featured && (
-        <div className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: 'var(--color-primary)' }}>
+        <div className="flex-shrink-0 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" style={{ color: 'var(--color-primary)' }}>
           <ArrowRight size={16} />
         </div>
       )}

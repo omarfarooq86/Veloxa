@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { MetaRobots } from '@/components/MetaRobots';
 import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
 import { LayoutTemplate, Code2, ShoppingCart, Zap, CheckCircle2, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
@@ -63,6 +64,7 @@ const WebDesign: React.FC = () => {
 
   return (
     <div>
+      <MetaRobots />
       <nav className="container pt-24 pb-4 flex items-center gap-2 text-sm text-muted">
         <Link to="/" className="hover:text-primary transition-colors">Home</Link>
         <ChevronRight size={14} />
@@ -73,6 +75,12 @@ const WebDesign: React.FC = () => {
         title="Web Design & Development"
         description="Stunning, high-performance websites built for optimal user experience and maximum conversion."
       />
+      {/* Intro paragraph for thin‑content fix */}
+      <section className="section container mt-8 mb-12">
+        <p className="text-lg text-muted max-w-4xl mx-auto text-pretty">
+          We believe a website should be more than just a digital brochure – it must be a high‑performing business asset that converts visitors into customers. Our process starts with strategic discovery to align design with your brand goals, followed by wireframing, prototype testing, and meticulous UI/UX design. We then develop clean, responsive code optimized for speed, accessibility, and SEO, ensuring your site not only looks exceptional but also ranks well and loads instantly on any device.
+        </p>
+      </section>
 
       <section className="section container text-center">
         <div className="glass-strong max-w-4xl mx-auto px-8 py-16 rounded-2xl">
@@ -142,6 +150,16 @@ const WebDesign: React.FC = () => {
             </ul>
             <Link to="/portfolio" className="btn btn-outline">View Our Work <ArrowRight size={16} /></Link>
           </div>
+        </div>
+      </section>
+
+      {/* Our Design Process */}
+      <section className="section container text-center">
+        <div className="max-w-4xl mx-auto px-8 py-8">
+          <h2 className="mb-4">Our Design Process</h2>
+          <p className="text-muted text-lg leading-relaxed text-pretty">
+            Our design process begins with deep discovery to understand your brand, audience, and business goals. We then craft wireframes and prototypes, iterating with stakeholder feedback to ensure the experience aligns with user needs. Once approved, we move to visual design, applying your brand language and ensuring accessibility. Finally, we hand off clean, responsive code that’s optimized for performance and SEO, ready to launch and scale with confidence.
+          </p>
         </div>
       </section>
 

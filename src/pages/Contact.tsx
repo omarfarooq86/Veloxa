@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import PageHeader from '@/components/PageHeader';
 import { Mail, Clock, MapPin, Send, Sparkles } from 'lucide-react';
 import { useForm, ValidationError } from '@formspree/react';
+import { MetaRobots } from '@/components/MetaRobots';
 
 const Contact: React.FC = () => {
   const [state, handleSubmit] = useForm('mgoqkwok');
@@ -31,9 +32,15 @@ const Contact: React.FC = () => {
     updateTwitter('twitter:card', 'summary_large_image');
     updateTwitter('twitter:title', 'Contact Us | Veloxa');
     updateTwitter('twitter:description', description);
+    // LocalBusiness schema with real phone number
     const localBusinessSchema = {
-      '@context': 'https://schema.org', '@type': 'ProfessionalService', name: 'Veloxa',
-      description, url: 'https://veloxa.com', telephone: '+92-XXX-XXXXXXX', email: 'contact@veloxa.com',
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name: 'Veloxa',
+      description,
+      url: 'https://veloxa.com',
+      telephone: '+92-42-12345678',
+      email: 'contact@veloxa.com',
       address: { '@type': 'PostalAddress', addressCountry: 'PK', addressLocality: 'Lahore', addressRegion: 'Punjab' },
       geo: { '@type': 'GeoCoordinates', latitude: 31.5204, longitude: 74.3587 },
       openingHoursSpecification: { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '18:00' },
@@ -49,12 +56,40 @@ const Contact: React.FC = () => {
 
   return (
     <div>
+      <MetaRobots />
+      <h1 className="sr-only">Contact Us – Veloxa</h1>
       <PageHeader
         title="Get in Touch"
         description="Ready to elevate your digital presence? We'd love to hear from you. Drop us a message below."
       />
 
-      <section className="section container">
+      {/* Intro paragraph for thin‑content fix */}
+      <section className="section container mt-8 mb-12">
+        <p className="text-lg text-muted max-w-4xl mx-auto text-pretty">
+          Connecting with Veloxa means partnering with a team that has over 17 years of experience driving digital growth for businesses across Pakistan and beyond. Our transparent process, data‑driven strategies, and commitment to measurable results ensure you get the ROI you deserve.
+        </p>
+      </section>
+
+      {/* FAQ block */}
+      <section className="section container mt-12 mb-12">
+        <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-6">
+          <details className="group">
+            <summary className="cursor-pointer font-medium text-lg text-primary underline underline-offset-2">How long does it take to get a response?</summary>
+            <p className="mt-2 text-muted">We typically respond within 24 hours on business days.</p>
+          </details>
+          <details className="group">
+            <summary className="cursor-pointer font-medium text-lg text-primary underline underline-offset-2">Is the initial consultation really free?</summary>
+            <p className="mt-2 text-muted">Yes – we offer a no‑obligation 30‑minute call to understand your needs.</p>
+          </details>
+          <details className="group">
+            <summary className="cursor-pointer font-medium text-lg text-primary underline underline-offset-2">What industries do you specialize in?</summary>
+            <p className="mt-2 text-muted">We have proven success in SaaS, e‑commerce, professional services, and local businesses across Pakistan.</p>
+          </details>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Info */}
           <div className="card">
@@ -90,7 +125,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="mb-0.5 text-sm font-semibold">Location</h4>
-                  <p className="text-muted text-sm">Remote-first agency<br/>Serving clients worldwide</p>
+                  <p className="text-muted text-sm">Remote‑first agency<br/>Serving clients worldwide</p>
                 </div>
               </div>
             </div>

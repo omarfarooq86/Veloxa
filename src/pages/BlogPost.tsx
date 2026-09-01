@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { MetaRobots } from '@/components/MetaRobots';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowUp, ChevronRight } from 'lucide-react';
 import { blogPosts } from '@/data/blogPosts';
@@ -7,6 +8,7 @@ const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
 
   const post = useMemo(() => blogPosts.find(p => p.slug === slug), [slug]);
+  const relatedPosts = useMemo(() => blogPosts.filter(p => p.slug !== slug).slice(0, 3), [slug]);
 
   useEffect(() => {
     if (post) {
@@ -101,7 +103,7 @@ const BlogPost: React.FC = () => {
   // Schema generation
   useEffect(() => {
     if (!post) return;
-    const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: post.title, description: post.excerpt, image: post.image, author: { '@type': 'Organization', name: 'Veloxa Editorial Team', url: 'https://veloxa.com' }, publisher: { '@type': 'Organization', name: 'Veloxa', logo: { '@type': 'ImageObject', url: 'https://veloxa.com/logo.png' } }, datePublished: post.date, dateModified: post.date, mainEntityOfPage: { '@type': 'WebPage', '@id': `https://veloxa.com/blog/${post.slug}` } };
+    const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: post.title, description: post.excerpt, image: post.image, keywords: post.tags || [], author: { '@type': 'Organization', name: 'Veloxa Editorial Team', url: 'https://veloxa.com' }, publisher: { '@type': 'Organization', name: 'Veloxa', logo: { '@type': 'ImageObject', url: 'https://veloxa.com/logo.png' } }, datePublished: post.date, dateModified: post.date, mainEntityOfPage: { '@type': 'WebPage', '@id': `https://veloxa.com/blog/${post.slug}` } };
     const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://veloxa.com' }, { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://veloxa.com/blog' }, { '@type': 'ListItem', position: 3, name: post.title, item: `https://veloxa.com/blog/${post.slug}` }] };
     const schemas: any[] = [articleSchema, breadcrumbSchema];
     const faqSection = post.content.match(/## Frequently Asked Questions([\s\S]*?)(?=##|$)/);
@@ -118,7 +120,7 @@ const BlogPost: React.FC = () => {
   }, [post]);
 
   return (
-    <div className="pt-24 pb-16">
+    <div className="pt-24 pb-16"><MetaRobots />
       {/* Hero Section */}
       <div className="relative w-full h-[50vh] min-h-[400px]">
         <img src={post.image} alt={post.title} className="w-full h-full object-cover" width="1200" height="630" />
@@ -184,6 +186,24 @@ const BlogPost: React.FC = () => {
                 </div>
               </div>
             </div>
+          {/* Related Articles */}
+          <div className="mt-12 pt-8 border-t border-[rgba(15,27,51,0.08)]">
+            <h2 className="text-3xl font-bold mb-6 gradient-text-alt">Related Articles</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedPosts.map((p, idx) => (
+                <Link key={idx} to={`/blog/${p.slug}`} className="card animate-fade-up block p-0 overflow-hidden flex flex-col group cursor-pointer" style={{ animationDelay: `${idx * 0.1}s` }}>
+                  <div className="h-48 w-full relative overflow-hidden">
+                    <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  </div>
+                  <div className="p-6 flex flex-col grow">
+                    <p className="badge badge-primary mb-3 w-fit text-xs">{p.category}</p>
+                    <h3 className="mb-3 text-xl">{p.title}</h3>
+                    <p className="text-muted text-sm">{p.excerpt.slice(0, 100)}…</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
           </div>
 
           {/* Sidebar */}

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { MetaRobots } from '@/components/MetaRobots';
 import { Link } from 'react-router-dom';
 import PageHeader from '@/components/PageHeader';
 import { Target, TrendingUp, Compass, CheckCircle2, ShieldCheck, ChevronRight, ArrowRight, Star } from 'lucide-react';
@@ -138,9 +139,31 @@ const SEOServices: React.FC = () => {
         { '@type': 'ListItem', position: 2, name: 'SEO Services', item: canonicalUrl }
       ]
     };
+        const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'How long does SEO take?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'SEO is a long‑term strategy; most clients see measurable results in 3‑6 months.'
+          }
+        },
+        {
+          '@type': 'Question',
+          name: 'What is the pricing model?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'We offer a free audit, guided partnership, or full‑service retainer based on client needs.'
+          }
+        }
+      ]
+    };
     const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]');
     existingSchemas.forEach(schema => schema.remove());
-    [serviceSchema, breadcrumbSchema].forEach(schemaData => {
+    [serviceSchema, breadcrumbSchema, faqSchema].forEach(schemaData => {
       const script = document.createElement('script');
       script.type = 'application/ld+json';
       script.text = JSON.stringify(schemaData);
@@ -150,7 +173,8 @@ const SEOServices: React.FC = () => {
 
   return (
     <div>
-      <nav className="container pt-24 pb-4 flex items-center gap-2 text-sm text-muted">
+      <MetaRobots />
+        <nav className="container pt-24 pb-4 flex items-center gap-2 text-sm text-muted">
         <Link to="/" className="hover:text-primary transition-colors">Home</Link>
         <ChevronRight size={14} />
         <span className="text-text">SEO Services</span>
