@@ -48,6 +48,7 @@ const Hero: React.FC = () => {
       className="relative min-h-screen flex flex-col items-stretch justify-center overflow-hidden text-white pt-28 hero-particles-bg"
     >
       <ParticleBackground />
+      <div className="hero-overlay absolute inset-0 bg-gray-900/80 pointer-events-none"></div>
 {/* Ambient glow — nudged by the cursor */}
       <div ref={glowRef} className="hero-parallax absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-15%] right-[-10%] w-[60vw] h-[60vw] rounded-full blur-[160px] opacity-[0.08]" style={{ background: 'var(--color-primary)' }} />
