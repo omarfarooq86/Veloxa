@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { ArrowRight, Zap, Target, BarChart3, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useMagnetic } from '@/hooks/useMagnetic';
+import ParticleBackground from '@/components/ParticleBackground';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -44,14 +45,10 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex flex-col items-stretch justify-center overflow-hidden text-white pt-28 gradient-bg-animate"
-      style={{
-      background: 'linear-gradient(270deg, #1a1c25, #2c3e4d, #12141a)',
-      backgroundSize: '600% 600%',
-      animation: 'gradientShift 20s ease infinite',
-    }}
+      className="relative min-h-screen flex flex-col items-stretch justify-center overflow-hidden text-white pt-28 hero-particles-bg"
     >
-      {/* Ambient glow — nudged by the cursor */}
+      <ParticleBackground />
+{/* Ambient glow — nudged by the cursor */}
       <div ref={glowRef} className="hero-parallax absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-15%] right-[-10%] w-[60vw] h-[60vw] rounded-full blur-[160px] opacity-[0.08]" style={{ background: 'var(--color-primary)' }} />
         <div className="absolute bottom-[-10%] left-[-5%] w-[40vw] h-[40vw] rounded-full blur-[120px] opacity-[0.05]" style={{ background: 'var(--color-accent)' }} />
