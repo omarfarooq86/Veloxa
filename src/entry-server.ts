@@ -1,6 +1,6 @@
 // Server entry for prerendering (TS, no JSX)
 import React from 'react';
-import { renderToString } from 'react-dom/server.node.js';
+import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import { AppShell } from './App';
 

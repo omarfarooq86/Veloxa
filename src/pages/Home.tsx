@@ -6,6 +6,7 @@ import { useMagnetic } from '@/hooks/useMagnetic';
 import { Link } from 'react-router-dom';
 import { Search, Monitor, Palette, TrendingUp, ArrowRight } from 'lucide-react';
 import { MetaRobots } from '@/components/MetaRobots';
+import { HomeExtendedSections } from '@/components/home/HomeExtendedSections';
 
 const Home: React.FC = () => {
   const ctaRef = useMagnetic<HTMLAnchorElement>({ strength: 0.35, scale: 1.04 });

@@ -1,4 +1,5 @@
 export interface BlogPostData {
+  tags?: string[];
   slug: string;
   image: string;
   category: string;
