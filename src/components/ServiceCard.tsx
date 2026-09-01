@@ -13,9 +13,9 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, link, featured = false, delay }) => {
   return (
-    <Link
+    <Link tabIndex={0}
       to={link}
-      className="group cursor-pointer"
+      className="group cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2"
       style={{
         display: 'flex',
         alignItems: 'center',

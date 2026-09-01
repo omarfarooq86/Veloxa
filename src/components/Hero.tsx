@@ -44,8 +44,12 @@ const Hero: React.FC = () => {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex flex-col items-stretch justify-center overflow-hidden text-white pt-28"
-      style={{ background: 'linear-gradient(170deg, #1a1c25 0%, #16181f 50%, #12141a 100%)' }}
+      className="relative min-h-screen flex flex-col items-stretch justify-center overflow-hidden text-white pt-28 gradient-bg-animate"
+      style={{
+      background: 'linear-gradient(270deg, #1a1c25, #2c3e4d, #12141a)',
+      backgroundSize: '600% 600%',
+      animation: 'gradientShift 20s ease infinite',
+    }}
     >
       {/* Ambient glow — nudged by the cursor */}
       <div ref={glowRef} className="hero-parallax absolute inset-0 z-0 overflow-hidden pointer-events-none">
