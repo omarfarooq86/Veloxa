@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Import the server rendering function (requires ts-node for TS files)
-import { render } from '../src/entry-server.tsx';
+import { render } from '../src/entry-server.ts';
 import { blogPosts } from '../src/data/blogPosts.ts';
 import { portfolioProjects } from '../src/data/portfolioProjects.ts';
 
