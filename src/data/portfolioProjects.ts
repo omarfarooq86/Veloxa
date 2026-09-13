@@ -6,6 +6,7 @@ export interface PortfolioProject {
   image: string;
   client: string;
   timeline: string;
+  url?: string;
   services: string[];
   results: { metric: string; label: string }[];
   challenge: string;
@@ -133,6 +134,7 @@ export const portfolioProjects: PortfolioProject[] = [
     image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&q=80',
     client: 'BazaarNow',
     timeline: '14 Weeks',
+    url: 'https://www.bazaarnow.net',
     services: ['E-commerce Development', 'UI/UX Design', 'Payment Integration', 'SEO'],
     results: [
       { metric: '1,419+', label: 'Products Listed at Launch' },
@@ -155,6 +157,7 @@ export const portfolioProjects: PortfolioProject[] = [
     image: 'https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=1200&q=80',
     client: 'CaseWalay',
     timeline: '8 Weeks',
+    url: 'https://casewalay.com',
     services: ['E-commerce Development', 'Brand Identity', 'WhatsApp Commerce', 'SEO'],
     results: [
       { metric: '8', label: 'Phone Brands Supported' },
@@ -177,6 +180,7 @@ export const portfolioProjects: PortfolioProject[] = [
     image: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=1200&q=80',
     client: 'Custom Designs Now',
     timeline: '6 Weeks',
+    url: 'https://www.customdesignsnow.com',
     services: ['E-commerce Development', 'Brand Identity', 'Content Strategy', 'Payment Integration'],
     results: [
       { metric: '5', label: 'Design Categories Launched' },
@@ -189,6 +193,29 @@ export const portfolioProjects: PortfolioProject[] = [
     contentImages: [
       'https://images.unsplash.com/photo-1572119865084-43c285814d63?w=800&q=80',
       'https://images.unsplash.com/photo-1544816155-12df9643f363?w=800&q=80'
+    ]
+  },
+  {
+    slug: 'dr-abid-ali-child-specialist',
+    title: 'Dr Abid Ali Malik — Child Specialist',
+    category: 'Web Design & Development',
+    description: 'Designed and built a complete digital practice for a pediatric cardiologist in Islamabad — 12 specialist service lines, WhatsApp-first appointment booking, and a bilingual education hub with books, videos and patient resources.',
+    image: '/images/drabidali-hero.jpg',
+    client: 'Dr Abid Ali Malik',
+    timeline: '6 Weeks',
+    url: 'https://drabidali.com',
+    services: ['WordPress Development', 'UI/UX Design', 'SEO & Content Architecture', 'WhatsApp Booking Integration'],
+    results: [
+      { metric: '12', label: 'Service Lines with Direct Booking' },
+      { metric: '2', label: 'Published Books on Amazon' },
+      { metric: 'Same-Day', label: 'Appointment Confirmation via WhatsApp' }
+    ],
+    challenge: `Dr. Abid Ali Malik is a pediatric interventional cardiologist with credentials most clinics would envy — FCPS in Paediatrics, an interventional cardiology fellowship at NICVD, and specialist training in Ireland under the Royal College of Physicians. But his practice is far more than a clinic: he runs a neuro-cardiac service line, leads the My Child Heart Foundation, teaches through his ECG Club / Echo Academy, and publishes books for families and clinicians alike. The challenge was to build a website that could carry all of this at once — while still speaking directly to a parent who has just been told their child may have a heart problem and is searching for answers on a phone. Complex medical trust signals had to sit alongside plain, reassuring language, and booking had to work the way Pakistani families actually communicate: through WhatsApp.`,
+    solution: `We designed and developed a custom WordPress theme tailored to the practice. The homepage opens with his credentials and a clear promise — "Care for young hearts, guided by experience" — before guiding visitors into the twelve specialist service lines (nine cardiac, three neuro-cardiac), each with its own structured page and a direct booking CTA. The appointment flow is WhatsApp-first: parents submit a booking form and receive same-day confirmation. Around the clinical core, we built an education ecosystem — patient FAQs, a bilingual video library in English and Urdu, a books section linked to Amazon, foundation pages for MCHF, and a home for the ECG Club / Echo Academy. For search, we implemented schema markup, breadcrumbs, and healthcare-grade trust pages including a privacy policy and medical disclaimer to support E-E-A-T.`,
+    impact: `The launch transformed a fragmented practice — clinic, teaching, publishing and charity work — into a single, cohesive digital presence. Every clinical service now has a clear, bookable path, and families across Pakistan can learn about congenital heart disease in English or Urdu. The site gives the doctor's international-level expertise the online presence it deserves, while keeping every conversion path WhatsApp-first with same-day confirmation.`,
+    contentImages: [
+      '/images/drabidali-services.jpg',
+      '/images/drabidali-about.jpg'
     ]
   },
   {

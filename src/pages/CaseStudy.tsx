@@ -15,6 +15,34 @@ const CaseStudy: React.FC = () => {
     if (project) {
       document.title = `${project.title} Case Study | Veloxa`;
       window.scrollTo(0, 0);
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.setAttribute('content', project.description);
+      else { const meta = document.createElement('meta'); meta.name = 'description'; meta.content = project.description; document.head.appendChild(meta); }
+      const canonical = document.querySelector('link[rel="canonical"]');
+      const canonicalUrl = `https://veloxa.com/portfolio/${project.slug}`;
+      if (canonical) canonical.setAttribute('href', canonicalUrl);
+      else { const link = document.createElement('link'); link.rel = 'canonical'; link.href = canonicalUrl; document.head.appendChild(link); }
+      // Social scrapers require absolute image URLs; local assets ship as root-relative paths.
+      const absoluteImage = project.image.startsWith('http') ? project.image : `https://veloxa.com${project.image}`;
+      const updateOG = (p: string, c: string) => {
+        const og = document.querySelector(`meta[property="${p}"]`) || document.querySelector(`meta[name="${p}"]`);
+        if (og) og.setAttribute('content', c);
+        else { const m = document.createElement('meta'); m.setAttribute('property', p); m.content = c; document.head.appendChild(m); }
+      };
+      updateOG('og:title', project.title); updateOG('og:description', project.description); updateOG('og:image', absoluteImage);
+      updateOG('og:url', canonicalUrl); updateOG('og:type', 'article');
+      const updateTwitter = (n: string, c: string) => {
+        const t = document.querySelector(`meta[name="${n}"]`);
+        if (t) t.setAttribute('content', c);
+        else { const m = document.createElement('meta'); m.name = n; m.content = c; document.head.appendChild(m); }
+      };
+      updateTwitter('twitter:card', 'summary_large_image');
+      updateTwitter('twitter:title', project.title); updateTwitter('twitter:description', project.description); updateTwitter('twitter:image', absoluteImage);
+      const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: project.title, description: project.description, image: absoluteImage, author: { '@type': 'Organization', name: 'Veloxa', url: 'https://veloxa.com' }, publisher: { '@type': 'Organization', name: 'Veloxa', logo: { '@type': 'ImageObject', url: 'https://veloxa.com/logo.png' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl } };
+      const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://veloxa.com' }, { '@type': 'ListItem', position: 2, name: 'Portfolio', item: 'https://veloxa.com/portfolio' }, { '@type': 'ListItem', position: 3, name: project.title, item: canonicalUrl }] };
+      const existingSchemas = document.querySelectorAll('script[type="application/ld+json"]');
+      existingSchemas.forEach(schema => schema.remove());
+      [articleSchema, breadcrumbSchema].forEach(schemaData => { const s = document.createElement('script'); s.type = 'application/ld+json'; s.text = JSON.stringify(schemaData); document.head.appendChild(s); });
     } else {
       document.title = 'Project Not Found | Veloxa';
     }
@@ -51,6 +79,17 @@ const CaseStudy: React.FC = () => {
           <p className="text-xl md:text-2xl text-muted leading-relaxed max-w-3xl text-pretty">
             {project.description}
           </p>
+
+          {project.url && (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary cursor-target inline-flex items-center gap-2 mt-8"
+            >
+              Visit Live Website <ExternalLink size={16} />
+            </a>
+          )}
         </div>
       </div>
 
