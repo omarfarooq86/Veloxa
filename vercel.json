@@ -1,5 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npx playwright install --with-deps chromium && npm run build",
+  "cleanUrls": true,
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ]

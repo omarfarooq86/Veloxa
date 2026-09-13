@@ -31,3 +31,6 @@ dist-ssr
 # Build artifacts & archives
 veloxa-wordpress/
 veloxa-wordpress.zip
+
+# Playwright MCP artifacts
+.playwright-mcp/
