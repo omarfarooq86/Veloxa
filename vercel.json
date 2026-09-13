@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npx playwright install chromium && npm run build",
+  "buildCommand": "sh scripts/vercel-build.sh",
   "cleanUrls": true,
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
